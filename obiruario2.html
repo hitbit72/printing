@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initual-scale=1.0">
+
+    <title>Esquela</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000;
+            justify-content: center;
+            align-items: center;
+            width: 21cm;
+        }
+		
+        .contenedor {
+		    background: #fff;
+			width: 21cm;
+			height: 29.7cm;
+			display: block;
+            justify-content: center;
+            align-items: center;
+			margin: 0 auto;
+			margin-bottom: 0.5cm;
+			border: 1px solid #000;
+		}
+		
+        .esquela {
+            width: 95%;
+            background: #fff;
+            border: 1px solid #000;
+            padding: 20px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #000;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+        .header .empresa {
+		    text-align: center;
+			margin-left: 100px;
+        }
+        .header h1 {
+            font-size: 30px;
+            margin: 0;
+        }
+        .header h2 {
+            font-size: 30px;
+            margin: 35px 0 0 0;
+        }
+        .header .image {
+            margin-left: 30px;
+			margin-right: 15px;
+			margin-top: 15px;
+        }
+        .header .image img {
+            max-width: 250px;
+            height: auto;
+        }
+        .content {
+            text-align: justify;
+            line-height: 1.6;
+            font-size: 26px;
+            margin-left: 15px;
+			margin-right: 15px;
+        }
+        .dep {
+            font-family: "Script MT Bold";
+            font-style: italic;
+            text-align: center;
+            font-size: 32px;
+            margin: 20px 0;
+        }
+		.sg1 {
+            text-indent: 5em;
+        }
+        .footer {
+            text-align: center;
+            border-top: 1px solid #000;
+            margin-top: 20px;
+            padding-top: 10px;
+            font-size: 14px;
+        }
+		
+	    @media print {
+		    body, .contenedor, .esquela {
+			    margin: 0;
+				box-shadow: none;
+				border: none;
+			}
+		}
+    </style>
+</head>
+<body>
+	<div class="contenedor">
+    <div class="esquela">
+        <div class="header">
+            <div class="empresa">
+                <h1>Funeraria</h1>
+                <h2>ROMERO</h2>
+            </div>
+            <div class="image">
+                <img id="imagen" src="" alt="Imagen religiosa">
+            </div>
+        </div>
+        <div class="dep">D.E.P</div>
+        <div class="content">
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rogad a Dios en caridad, por el alma de<br/><span id="nombre">Nombre</span>, que ha fallecido el d&iacute;a <span id="ffecha">fecha</span> a los <span id="edad">90</span> a&ntilde;os. 
+			La familia agradece las muestras de cari&ntilde;o y afecto en estos dif&iacute;ciles momentos y ruegan una oraci&oacute;n por su alma.</p>
+            <p>La Misa Exequial por su eterno descanso, se celebrar&aacute; el d&iacute;a <span id="mfecha">fecha</span>h., en la <span id="iglesia">iglesia</span>. 
+			<span id="ella">difunto</span> se est&aacute; velando en el <span id="tanatorio">tanatorio</span>.</p>
+        </div>
+        <div class="footer">
+            <p><span id="poblacion">poblacion</span> a <span id="ffecha2">fecha</span></p>
+        </div>
+    </div>
+	</div>
+
+  <script>
+    // Script para insertar contenido dinamico
+    document.getElementById("imagen").src='<?= imagen ?>';
+    document.getElementById("nombre").innerHTML='<?= nombre ?>';
+    document.getElementById("ffecha").innerHTML='<?= ffecha ?>';
+    document.getElementById("edad").innerHTML='<?= edad ?>';
+    document.getElementById("mfecha").innerHTML='<?= mfecha ?>';
+    document.getElementById("iglesia").innerHTML='<?= iglesia ?>';
+    document.getElementById("ella").innerHTML='<?= ella ?>';
+    document.getElementById("tanatorio").innerHTML='<?= tanatorio ?>';
+    document.getElementById("poblacion").innerHTML='<?= poblacion ?>';
+    document.getElementById("ffecha2").innerHTML='<?= ffecha2 ?>';
+
+    // Script para abrir la ventana de impresion
+    window.onload = function(){
+      //alert("print");
+      window.print();
+    };
+  </script>
+
+</body>
+</html>
