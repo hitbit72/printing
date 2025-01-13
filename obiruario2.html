@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initual-scale=1.0">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initual-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
     <title>Esquela</title>
     <style>
         body {
@@ -14,26 +15,26 @@
             color: #000;
             justify-content: center;
             align-items: center;
-            width: 21cm;
+			      width: 21cm;
         }
 		
         .contenedor {
-		    background: #fff;
-			width: 21cm;
-			height: 29.7cm;
-			display: block;
-            justify-content: center;
-            align-items: center;
-			margin: 0 auto;
-			margin-bottom: 0.5cm;
-			border: 1px solid #000;
-		}
+		      background: #fff;
+			    width: 21cm;
+			    height: 29.7cm;
+			    display: block;
+          justify-content: center;
+          align-items: center;
+			    margin: 0 auto;
+			    margin-bottom: 0.5cm;
+			    border: 1px solid #000;
+		    }
 		
         .esquela {
-            width: 95%;
+            /* width: 95%; */
             background: #fff;
-            border: 1px solid #000;
-            padding: 20px;
+            /* border: 1px solid #000; */
+            padding: 10px;
         }
 
         .header {
@@ -42,42 +43,60 @@
             justify-content: space-between;
             border-bottom: 1px solid #000;
             margin-bottom: 20px;
-            padding-bottom: 10px;
+            padding-bottom: 25px;
         }
         .header .empresa {
-		    text-align: center;
-			margin-left: 100px;
+		      text-align: center;
+			    margin-left: 10px;
+          margin-right: 10px;
         }
         .header h1 {
-            font-size: 30px;
-            margin: 0;
+          font-size: 38px;
+          margin: 0;
+          text-shadow: 3px 3px 3px #ababab;
         }
         .header h2 {
-            font-size: 30px;
+            font-size: 38px;
             margin: 35px 0 0 0;
         }
-        .header .image {
-            margin-left: 30px;
-			margin-right: 15px;
-			margin-top: 15px;
+        .header .fotouser {
+          margin-left: 15px;
+			    margin-right: 15px;
+			    margin-top: 15px;
         }
-        .header .image img {
-            max-width: 250px;
-            height: auto;
+        .header .fotouser img {
+            /* max-width: 210px; */
+            width: 210px;
+            height: 300px;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+            display: none;
+        }
+        .header .santo {
+          margin-left: 15px;
+			    margin-right: 15px;
+			    margin-top: 15px;
+        }
+        .header .santo img {
+            /* max-width: 210px; */
+            width: 210px;
+            height: 300px;
+            /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
         }
         .content {
+            font-family: "Sofia";
             text-align: justify;
             line-height: 1.6;
-            font-size: 26px;
+            font-size: 28px;
             margin-left: 15px;
-			margin-right: 15px;
+			      margin-right: 15px;
         }
         .dep {
-            font-family: "Script MT Bold";
+            font-family: "Sofia";
             font-style: italic;
             text-align: center;
-            font-size: 32px;
-	    text-shadow: 3px 3px 3px #ababab;
+            font-size: 38px;
+            text-shadow: 3px 3px 3px #ababab;
             margin: 20px 0;
         }
 		.sg1 {
@@ -88,14 +107,14 @@
             border-top: 1px solid #000;
             margin-top: 20px;
             padding-top: 10px;
-            font-size: 14px;
+            font-size: 22px;
         }
 		
 	    @media print {
 		    body, .contenedor, .esquela {
 			    margin: 0;
-				box-shadow: none;
-				border: none;
+				  //box-shadow: none;
+				  border: none;
 			}
 		}
     </style>
@@ -104,12 +123,15 @@
 	<div class="contenedor">
     <div class="esquela">
         <div class="header">
+            <div class="fotouser">
+                <img id="fuser" src="">
+            </div>
             <div class="empresa">
                 <h1>Funeraria</h1>
-                <h2>ROMERO</h2>
+                <h1>ROMERO</h1>
             </div>
-            <div class="image">
-                <img id="imagen" src="https://www.appsheet.com/template/gettablefileurl?appName=<?= idapp ?>&tableName=<?= tablename ?>&fileName=<?= imagen ?>" alt="Imagen religiosa">
+            <div class="santo">
+                <img id="fsanto" src="https://www.appsheet.com/template/gettablefileurl?appName=<?= idapp ?>&tableName=<?= tablename ?>&fileName=<?= imagen ?>">
             </div>
         </div>
         <div class="dep">D.E.P</div>
@@ -126,8 +148,23 @@
 	</div>
 
   <script>
+
+    function fotoURL(id, tabla, imagen){
+      const ft = "https://www.appsheet.com/template/gettablefileurl?appName="+id+"&tableName="+tabla+"&fileName="+imagen;
+      return ft;
+    }
+
     // Script para insertar contenido dinamico
-    document.getElementById("imagen").src='<?= imagen ?>';
+    const appid = '<?= idapp ?>';
+    const usefoto ='<?= usefoto ?>';
+    const tablefoto = '<?= tablefoto ?>';
+    const foto = '<?= foto ?>';
+
+    if (usefoto == 'Si'){
+      document.getElementById("fuser").src = fotoURL(appid,tablefoto,foto);
+      document.getElementById("fuser").style.display = 'block';
+    }
+
     document.getElementById("nombre").innerHTML='<?= nombre ?>';
     document.getElementById("ffecha").innerHTML='<?= ffecha ?>';
     document.getElementById("edad").innerHTML='<?= edad ?>';
@@ -140,7 +177,6 @@
 
     // Script para abrir la ventana de impresion
     window.onload = function(){
-      //alert("print");
       window.print();
     };
   </script>
