@@ -154,6 +154,10 @@
       return ft;
     }
 
+    const url = window.location.href;
+    const params = url.searchParams; //se almacenan todos los parámetros en una variable
+    const nombre = params.get("nombre"); // se utiliza el método GET para captar el valor del parámetro nombre
+	  
     // Script para insertar contenido dinamico
     const appid = '<?= idapp ?>';
     const usefoto ='<?= usefoto ?>';
@@ -165,7 +169,7 @@
       document.getElementById("fuser").style.display = 'block';
     }
 
-    document.getElementById("nombre").innerHTML='<?= nombre ?>';
+    document.getElementById("nombre").innerHTML=nombre;
     document.getElementById("ffecha").innerHTML='<?= ffecha ?>';
     document.getElementById("edad").innerHTML='<?= edad ?>';
     document.getElementById("mfecha").innerHTML='<?= mfecha ?>';
