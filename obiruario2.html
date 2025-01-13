@@ -155,8 +155,8 @@
     }
 
     const url = window.location.href;
-    const params = url.searchParams; //se almacenan todos los parámetros en una variable
-    const nombre = params.get("nombre"); // se utiliza el método GET para captar el valor del parámetro nombre
+    const urlParams = new URLSearchParams(window.location.search);
+    const nombre = urlParams.get("nombre");
 	  
     // Script para insertar contenido dinamico
     const appid = '<?= idapp ?>';
