@@ -155,8 +155,14 @@
     }
 
     const url = window.location.href;
-    const urlParams = new URLSearchParams(window.location.search);
-    const nombre = urlParams.get("nombre");
+    const paramsString = url.split("?")[1];
+    const paramsArray = paramsString.split("&");
+    const params = {};
+    paramsArray.forEach(param => {
+  	const [key, value] = param.split("=");
+  	params[key] = value;
+    });
+    const nombre = params.nombre;
 	  
     // Script para insertar contenido dinamico
     const appid = '<?= idapp ?>';
