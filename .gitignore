@@ -1,3 +1,4 @@
+.gitignore
 *.db
 *.py[cod]
 .venv
