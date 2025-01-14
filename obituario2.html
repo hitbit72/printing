@@ -113,7 +113,7 @@
 	    @media print {
 		    body, .contenedor, .esquela {
 			    margin: 0;
-				  //box-shadow: none;
+				  /* box-shadow: none; */
 				  border: none;
 			}
 		}
@@ -131,7 +131,7 @@
                 <h1>ROMERO</h1>
             </div>
             <div class="santo">
-                <img id="fsanto" src="https://www.appsheet.com/template/gettablefileurl?appName=<?= idapp ?>&tableName=<?= tablename ?>&fileName=<?= imagen ?>">
+                <img id="fsanto" src="">
             </div>
         </div>
         <div class="dep">D.E.P</div>
@@ -165,11 +165,16 @@
     // const nombre = params.nombre;
 	  
     // Script para insertar contenido dinamico
-    const appid = params.idapp;
-    const usefoto = params.usefoto;
-    const tablefoto = params.tablefoto;
-    const foto = params.foto;
+    const appid = params.idapp;                     // APP  ID
+    // Difunto
+    const usefoto = params.usefoto;                 // Usar foto usuario?
+    const tablefoto = params.tablefoto;             // Tabla foto
+    const foto = params.foto;                       // nombre foto
 
+    // Imagen santo
+    document.getElementById("fsanto").src = fotoURL(appid, params.tablename, params.imagen);
+
+    // Imagen difunto
     if (usefoto == 'Si'){
       document.getElementById("fuser").src = fotoURL(appid,tablefoto,foto);
       document.getElementById("fuser").style.display = 'block';
@@ -184,6 +189,8 @@
     document.getElementById("tanatorio").innerHTML=params.tanatorio;
     document.getElementById("poblacion").innerHTML=params.poblacion;
     document.getElementById("ffecha2").innerHTML=params.ffecha2;
+
+    
 
     // Script para abrir la ventana de impresion
     window.onload = function(){
