@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -193,3 +194,200 @@
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initual-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+    <title>Esquela</title>
+    <style>
+        body {
+            font-family: "Sofia", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000;
+            justify-content: center;
+            align-items: center;
+			      width: 21cm;
+        }
+		
+        .contenedor {
+		      background: #fff;
+			    width: 21cm;
+			    height: 29.7cm;
+			    display: block;
+          justify-content: center;
+          align-items: center;
+			    margin: 0 auto;
+			    margin-bottom: 0.5cm;
+			    border: 1px solid #000;
+		    }
+		
+        .esquela {
+            /* width: 95%; */
+            background: #fff;
+            /* border: 1px solid #000; */
+            padding: 10px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #000;
+            margin-bottom: 20px;
+            padding-bottom: 25px;
+        }
+        .header .empresa {
+		      text-align: center;
+			    margin-left: 10px;
+          margin-right: 10px;
+        }
+        .header h1 {
+          font-size: 38px;
+          margin: 0;
+          text-shadow: 3px 3px 3px #ababab;
+        }
+        .header h2 {
+            font-size: 38px;
+            margin: 35px 0 0 0;
+        }
+        .header .fotouser {
+          margin-left: 15px;
+			    margin-right: 15px;
+			    margin-top: 15px;
+        }
+        .header .fotouser img {
+            /* max-width: 210px; */
+            width: 210px;
+            height: 300px;
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+            display: none;
+        }
+        .header .santo {
+          margin-left: 15px;
+			    margin-right: 15px;
+			    margin-top: 15px;
+        }
+        .header .santo img {
+            /* max-width: 210px; */
+            width: 210px;
+            height: 300px;
+            /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+        }
+        .content {
+            font-family: "Sofia";
+            text-align: justify;
+            line-height: 1.6;
+            font-size: 28px;
+            margin-left: 15px;
+			      margin-right: 15px;
+        }
+        .dep {
+            font-family: "Sofia";
+            font-style: italic;
+            text-align: center;
+            font-size: 38px;
+            text-shadow: 3px 3px 3px #ababab;
+            margin: 20px 0;
+        }
+		.sg1 {
+            text-indent: 5em;
+        }
+        .footer {
+            text-align: center;
+            border-top: 1px solid #000;
+            margin-top: 20px;
+            padding-top: 10px;
+            font-size: 22px;
+        }
+		
+	    @media print {
+		    body, .contenedor, .esquela {
+			    margin: 0;
+				  //box-shadow: none;
+				  border: none;
+			}
+		}
+    </style>
+</head>
+<body>
+	<div class="contenedor">
+    <div class="esquela">
+        <div class="header">
+            <div class="fotouser">
+                <img id="fuser" src="">
+            </div>
+            <div class="empresa">
+                <h1>Funeraria</h1>
+                <h1>ROMERO</h1>
+            </div>
+            <div class="santo">
+                <img id="fsanto" src="https://www.appsheet.com/template/gettablefileurl?appName=<?= idapp ?>&tableName=<?= tablename ?>&fileName=<?= imagen ?>">
+            </div>
+        </div>
+        <div class="dep">D.E.P</div>
+        <div class="content">
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rogad a Dios en caridad, por el alma de<br/><span id="nombre">Nombre</span>, que ha fallecido el d&iacute;a <span id="ffecha">fecha</span> a los <span id="edad">90</span> a&ntilde;os. 
+			La familia agradece las muestras de cari&ntilde;o y afecto en estos dif&iacute;ciles momentos y ruegan una oraci&oacute;n por su alma.</p>
+            <p>La Misa Exequial por su eterno descanso, se celebrar&aacute; el d&iacute;a <span id="mfecha">fecha</span>h., en la <span id="iglesia">iglesia</span>. 
+			<span id="ella">difunto</span> se est&aacute; velando en el <span id="tanatorio">tanatorio</span>.</p>
+        </div>
+        <div class="footer">
+            <p><span id="poblacion">poblacion</span> a <span id="ffecha2">fecha</span></p>
+        </div>
+    </div>
+	</div>
+
+  <script>
+
+    function fotoURL(id, tabla, imagen){
+      const ft = "https://www.appsheet.com/template/gettablefileurl?appName="+id+"&tableName="+tabla+"&fileName="+imagen;
+      return ft;
+    }
+
+    const url = window.location.href;
+    const paramsString = url.split("?")[1];
+    const paramsArray = paramsString.split("&");
+    const params = {};
+    paramsArray.forEach(param => {
+  	const [key, value] = param.split("=");
+  	params[key] = value;
+    });
+    const nombre = params.nombre;
+	  
+    // Script para insertar contenido dinamico
+    const appid = '<?= idapp ?>';
+    const usefoto ='<?= usefoto ?>';
+    const tablefoto = '<?= tablefoto ?>';
+    const foto = '<?= foto ?>';
+
+    if (usefoto == 'Si'){
+      document.getElementById("fuser").src = fotoURL(appid,tablefoto,foto);
+      document.getElementById("fuser").style.display = 'block';
+    }
+
+    document.getElementById("nombre").innerHTML=params.nombre;
+    document.getElementById("ffecha").innerHTML=params.fecha;
+    document.getElementById("edad").innerHTML=params.edad;
+    document.getElementById("mfecha").innerHTML='<?= mfecha ?>';
+    document.getElementById("iglesia").innerHTML='<?= iglesia ?>';
+    document.getElementById("ella").innerHTML='<?= ella ?>';
+    document.getElementById("tanatorio").innerHTML='<?= tanatorio ?>';
+    document.getElementById("poblacion").innerHTML='<?= poblacion ?>';
+    document.getElementById("ffecha2").innerHTML='<?= ffecha2 ?>';
+
+    // Script para abrir la ventana de impresion
+    window.onload = function(){
+      window.print();
+    };
+  </script>
+
+</body>
+</html>
+>>>>>>> a42cc9409525c7c54966057c47c23b206c4d448f
