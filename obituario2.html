@@ -41,9 +41,9 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid #000;
-            margin-bottom: 20px;
-            padding-bottom: 25px;
+            /* border-bottom: 1px solid #000; */
+            /* margin-bottom: 20px; */
+            padding-bottom: 10px;
         }
         .header .empresa {
 		    text-align: center;
@@ -53,7 +53,7 @@
         .header h1 {
             font-size: 38px;
             margin: 0;
-            text-shadow: 3px 3px 3px #ababab;
+            text-shadow: 4px 4px 5px #ababab;
         }
         .header h2 {
             font-size: 38px;
@@ -82,6 +82,16 @@
             height: 300px;
             filter: drop-shadow(0.2rem 0.5rem 0.5rem rgba(0, 0, 0, 0.8));
         }
+        .linea1 {
+            display: flex;
+            align-items: center;
+        }
+        .linea1 img {
+            margin: auto;
+            width: 700px;
+            height: 30px;
+            filter: drop-shadow(0.2rem 0.5rem 0.3rem rgba(0, 0, 0, 0.8));
+        }
         .content {
             font-family: "Sofia";
             text-align: justify;
@@ -95,7 +105,7 @@
             font-style: italic;
             text-align: center;
             font-size: 38px;
-            text-shadow: 3px 3px 3px #ababab;
+            text-shadow: 4px 4px 5px #ababab;
             margin: 20px 0;
         }
 		.sg1 {
@@ -103,9 +113,9 @@
         }
         .footer {
             text-align: center;
-            border-top: 1px solid #000;
-            margin-top: 20px;
-            padding-top: 10px;
+            /* border-top: 1px solid #000; */
+            margin-top: 10px;
+            /* padding-top: 10px; */
             font-size: 22px;
         }
 		
@@ -133,12 +143,18 @@
                 <img id="fsanto" src="">
             </div>
         </div>
+        <div class="linea1">
+            <img id="ln1" src="img/linea1.png">
+        </div>
         <div class="dep">D.E.P</div>
         <div class="content">
             <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rogad a Dios en caridad, por el alma de<br/><span id="nombre">Nombre</span>, que ha fallecido el d&iacute;a <span id="ffecha">fecha</span> a los <span id="edad">90</span> a&ntilde;os. 
 			La familia agradece las muestras de cari&ntilde;o y afecto en estos dif&iacute;ciles momentos y ruegan una oraci&oacute;n por su alma.</p>
             <p>La Misa Exequial por su eterno descanso, se celebrar&aacute; el d&iacute;a <span id="mfecha">fecha</span>h., en la <span id="iglesia">iglesia</span>. 
 			<span id="ella">difunto</span> se est&aacute; velando en el <span id="tanatorio">tanatorio</span>.</p>
+        </div>
+        <div class="linea1">
+            <img id="ln2" src="img/linea1.png">
         </div>
         <div class="footer">
             <p><span id="poblacion">poblacion</span> a <span id="ffecha2">fecha</span></p>
@@ -216,12 +232,12 @@
      *  &mdia=18
      *  &mmes=Junio
      *  &many=2024
-     *  &mhora=17%3A00
+     *  &mhora=17:00
      *  &iglesia=Iglesia%20Parroquial%20Santiago%20El%20Mayor%20de%20Jimena
      *  &tanatorio=Tanatorio%20Santiago%20el%20Mayor%20de%20Jimena
      *  &poblacion=Jimena
      * 
-     * 
+     * %3A = :
      * */
 
   </script>
