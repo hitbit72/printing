@@ -15,20 +15,20 @@
             color: #000;
             justify-content: center;
             align-items: center;
-			      width: 21cm;
+			width: 21cm;
         }
 		
         .contenedor {
-		      background: #fff;
-			    width: 21cm;
-			    height: 29.7cm;
-			    display: block;
-          justify-content: center;
-          align-items: center;
-			    margin: 0 auto;
-			    margin-bottom: 0.5cm;
-			    border: 1px solid #000;
-		    }
+		    background: #fff;
+			width: 21cm;
+			height: 29.7cm;
+			display: block;
+            justify-content: center;
+            align-items: center;
+			margin: 0 auto;
+			margin-bottom: 0.5cm;
+			border: 1px solid #000;
+		}
 		
         .esquela {
             /* width: 95%; */
@@ -46,42 +46,41 @@
             padding-bottom: 25px;
         }
         .header .empresa {
-		      text-align: center;
-			    margin-left: 10px;
-          margin-right: 10px;
+		    text-align: center;
+			margin-left: 10px;
+            margin-right: 10px;
         }
         .header h1 {
-          font-size: 38px;
-          margin: 0;
-          text-shadow: 3px 3px 3px #ababab;
+            font-size: 38px;
+            margin: 0;
+            text-shadow: 3px 3px 3px #ababab;
         }
         .header h2 {
             font-size: 38px;
             margin: 35px 0 0 0;
         }
         .header .fotouser {
-          margin-left: 15px;
-			    margin-right: 15px;
-			    margin-top: 15px;
+            margin-left: 15px;
+			margin-right: 15px;
+			margin-top: 15px;
         }
         .header .fotouser img {
             /* max-width: 210px; */
             width: 210px;
             height: 300px;
-            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+            filter: drop-shadow(0.2rem 0.5rem 0.5rem rgba(0, 0, 0, 0.8));
             display: none;
         }
         .header .santo {
-          margin-left: 15px;
-			    margin-right: 15px;
-			    margin-top: 15px;
+            margin-left: 15px;
+			margin-right: 15px;
+			margin-top: 15px;
         }
         .header .santo img {
             /* max-width: 210px; */
             width: 210px;
             height: 300px;
-            /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
-            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+            filter: drop-shadow(0.2rem 0.5rem 0.5rem rgba(0, 0, 0, 0.8));
         }
         .content {
             font-family: "Sofia";
@@ -89,7 +88,7 @@
             line-height: 1.6;
             font-size: 28px;
             margin-left: 15px;
-			      margin-right: 15px;
+			margin-right: 15px;
         }
         .dep {
             font-family: "Sofia";
@@ -180,15 +179,16 @@
       document.getElementById("fuser").style.display = 'block';
     }
 
-    document.getElementById("nombre").innerHTML=params.nombre;
-    document.getElementById("ffecha").innerHTML=params.fecha;
-    document.getElementById("edad").innerHTML=params.edad;
-    document.getElementById("mfecha").innerHTML=params.mfecha;
-    document.getElementById("iglesia").innerHTML=params.iglesia;
-    document.getElementById("ella").innerHTML=params.ella;
-    document.getElementById("tanatorio").innerHTML=params.tanatorio;
-    document.getElementById("poblacion").innerHTML=params.poblacion;
-    document.getElementById("ffecha2").innerHTML=params.ffecha2;
+
+    document.getElementById("nombre").innerHTML = decodeURI(params.nombre);
+    document.getElementById("ffecha").innerHTML = params.fdia + " de " + params.fmes + " del " + params.fany;
+    document.getElementById("edad").innerHTML = params.edad;
+    document.getElementById("mfecha").innerHTML = params.mdia + " de " + params.mmes + " del " + params.many + " a las " + decodeURI(params.mhora);
+    document.getElementById("iglesia").innerHTML = decodeURI(params.iglesia);
+    document.getElementById("ella").innerHTML = decodeURI(params.ella);
+    document.getElementById("tanatorio").innerHTML = decodeURI(params.tanatorio);
+    document.getElementById("poblacion").innerHTML = decodeURI(params.poblacion);
+    document.getElementById("ffecha2").innerHTML = params.fdia + " de " + params.fmes + " del " + params.fany;
 
     
 
@@ -196,6 +196,34 @@
     window.onload = function(){
       window.print();
     };
+
+    /**
+     * 
+     * localhost/obituario2.html?
+     *  idapp=FunerariaRomero-636421517
+     *  &anuncio=anuncio1
+     *  &tablename=ANUNCIO
+     *  &imagen=ANUNCIO_Images%2Fd2917bd4.FOTO_SANTO.074353.jpg
+     *  &nombre=D%C2%BA%20El%C3%ADas%20Garc%C3%ADa%20Moreno
+     *  &usefoto=No
+     *  &tablefoto=DIFUNTO
+     *  &foto=DIFUNTO_Images%2F11c5a02c.FOTO.074747.jpg
+     *  &ella=El%20difunto
+     *  &fdia=19
+     *  &fmes=Junio
+     *  &fany=2024
+     *  &edad=91
+     *  &mdia=18
+     *  &mmes=Junio
+     *  &many=2024
+     *  &mhora=17%3A00
+     *  &iglesia=Iglesia%20Parroquial%20Santiago%20El%20Mayor%20de%20Jimena
+     *  &tanatorio=Tanatorio%20Santiago%20el%20Mayor%20de%20Jimena
+     *  &poblacion=Jimena
+     * 
+     * 
+     * */
+
   </script>
 
 </body>
