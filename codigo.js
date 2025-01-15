@@ -1,6 +1,6 @@
 function doGet(e){
   
-  
+  // app script google
   // Datos app
   const idapp = e.parameter.idapp || '';
   const anuncio = e.parameter.anuncio || 'anuncio1';
