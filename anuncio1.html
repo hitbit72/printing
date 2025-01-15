@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initual-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-store, must-revalidate" />
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
 
     <title>Esquela</title>
@@ -67,9 +72,11 @@
         .header .fotouser img {
             /* max-width: 210px; */
             width: 210px;
-            height: 300px;
+            max-height: 300px;
+            min-height: 210px;
             /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
             filter: drop-shadow(0.2rem 0.5rem 0.5rem rgba(0, 0, 0, 0.8));
+            border-radius: 10px;
             display: none;
         }
         .header .santo {
@@ -80,9 +87,11 @@
         .header .santo img {
             /* max-width: 210px; */
             width: 210px;
-            height: 300px;
+            max-height: 300px;
+            min-height: 210px;
             /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
             filter: drop-shadow(0.2rem 0.5rem 0.5rem rgba(0, 0, 0, 0.8));
+            border-radius: 10px;
         }
         .content {
             font-family: "Sofia";
@@ -114,8 +123,8 @@
 	    @media print {
 		    body, .contenedor, .esquela {
 			    margin: 0;
-				/* box-shadow: none; */
-				border: none;
+				  /* box-shadow: none; */
+				  border: none;
 			}
 		}
     </style>
