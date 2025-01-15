@@ -2,12 +2,20 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <meta name="viewport" content="width=device-width, initual-scale=1.0">
+=======
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+>>>>>>> f3ce33884aa0c652411b2d9af28f6cf12e810c32
     <meta http-equiv="Cache-Control" content="no-store, must-revalidate" />
     <meta http-equiv="cache-control" content="max-age=0" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> f3ce33884aa0c652411b2d9af28f6cf12e810c32
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
 
     <title>Esquela</title>
@@ -51,9 +59,9 @@
             padding-bottom: 10px;
         }
         .header .empresa {
-		    text-align: center;
-			margin-left: 10px;
-            margin-right: 10px;
+		text-align: center;
+		/* margin-left: 10px; */
+            	/* margin-right: 10px; */
         }
         .header h1 {
             font-size: 38px;
@@ -66,8 +74,8 @@
         }
         .header .fotouser {
             margin-left: 15px;
-			margin-right: 15px;
-			margin-top: 15px;
+	    /* margin-right: 15px; */
+	    margin-top: 15px;
         }
         .header .fotouser img {
             /* max-width: 210px; */
@@ -78,9 +86,9 @@
             display: none;
         }
         .header .santo {
-            margin-left: 15px;
-			margin-right: 15px;
-			margin-top: 15px;
+            /* margin-left: 15px; */
+	    margin-right: 15px;
+	    margin-top: 15px;
         }
         .header .santo img {
             /* max-width: 210px; */
@@ -102,18 +110,18 @@
         .content {
             font-family: "Sofia";
             text-align: justify;
-            line-height: 1.6;
+            line-height: 1.7;
             font-size: 28px;
-            margin-left: 15px;
-			margin-right: 15px;
+            margin-left: 20px;
+	    margin-right: 20px;
         }
         .dep {
             font-family: "Sofia";
             font-style: italic;
             text-align: center;
-            font-size: 38px;
+            font-size: 40px;
             text-shadow: 4px 4px 5px #ababab;
-            margin: 20px 0;
+            margin: 15px 0;
         }
 		.sg1 {
             text-indent: 5em;
@@ -212,11 +220,15 @@
     document.getElementById("poblacion").innerHTML = decodeURI(params.poblacion);
     document.getElementById("ffecha2").innerHTML = params.fdia + " de " + params.fmes + " del " + params.fany;
 
+   /**
+    window.addEventListener("afterprint", function(event) {
+	setTimeout(function() { window.close() }, 0)
+    });
+    */
     
-
     // Script para abrir la ventana de impresion
     window.onload = function(){
-      window.print();
+      	window.print();
     };
 
     /**
