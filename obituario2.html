@@ -208,8 +208,10 @@
     document.getElementById("poblacion").innerHTML = decodeURI(params.poblacion);
     document.getElementById("ffecha2").innerHTML = params.fdia + " de " + params.fmes + " del " + params.fany;
 
+    window.addEventListener("afterprint", function(event) {
+	setTimeout(function() { window.close() }, 0)
+    });
     
-
     // Script para abrir la ventana de impresion
     window.onload = function(){
       	window.print();
