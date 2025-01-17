@@ -232,9 +232,13 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
         let datos="";
         if (cl[1] != ""){ datos +=cl[1]+"<br>"; }
         if (cl[2] != ""){ datos +=cl[2]+"<br>"; }
-        if (cl[3] != ""){ datos +=cl[3]+" "+cl[4]+" "+cl[5]+"<br>"; 
+        if (cl[3] != ""){ 
+          datos +=cl[3]+" "+cl[4]; 
+          if (cl[5] != ""){ datos +=" ("+cl[5]+")<br>"; } else { datos +="<br>"; }
         }else{
-          datos +=cl[4]+" "+cl[5]+"<br>"; }
+          datos +=cl[4];
+          if (cl[5] != ""){ datos +=" ("+cl[5]+")<br>"; } else { datos +="<br>"; }
+        }
         if (cl[6] != ""){ datos +=cl[6]; }
 
         return datos;
