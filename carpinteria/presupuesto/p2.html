@@ -178,6 +178,17 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
         return ft;
       }
 
+      /**
+       * Formate numeros
+       * n = numero
+       */
+      function fNum(n){
+        return Intl.NumberFormat('es-ES', { 
+          style: "currency",
+          currency: "EUR",
+          }).format(n);
+      }
+
       function addLine(id, datos){
       /**
        * Separador de datos: þ
@@ -195,10 +206,6 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
             tbl.insertRow().innerHTML = '<td class="border-b py-0 pl-2">'+dt[0]+'</td><td class="border-b py-0 pl-2 text-right">'+dt[1]+'</td><td class="border-b py-0 pl-2 text-right">'+dt[2]+'</td><td class="border-b py-0 pl-2 pr-3 text-right">'+dt[3]+'</td>';
           }
         }
-      }
-
-      function fNum(n){
-        return Intl.NumberFormat('es-ES', { maximumSignificantDigits: 2 }).format(n);
       }
 
       // Empezamos a buscar los parametros pasados al url
