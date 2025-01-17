@@ -218,8 +218,6 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
       const lineas = decodeURI(params.lineas);        // Lineas del presupuesto
       const dCliente = cliente.split("þ");
 
-      const total = params.total.toFixed(2);
-
       document.getElementById("nCliente").innerHTML = dCliente[0];
       document.getElementById("dCliente").innerHTML = dCliente[1]+"<br>"+dCliente[3]+"<br>Tel: "+dCliente[2];
       document.getElementById("prNumero").innerHTML = params.numero;
