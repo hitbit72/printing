@@ -243,6 +243,7 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
       const appid = params.idapp;                   // APP  ID
       const cliente = decodeURI(params.cliente);    // Linea con todos los datos del cliente
       const lineas = decodeURI(params.lineas);        // Lineas del presupuesto
+      cliente = cliente.replace('%2C',',');
       const dCliente = cliente.split("þ");
 
       //let nn = Intl.NumberFormat('es-ES', { maximumSignificantDigits: 2 }).format(params.subtotal);
