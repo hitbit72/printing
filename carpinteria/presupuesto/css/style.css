@@ -528,6 +528,7 @@ video {
 .table{ display: table; }
 .h-12{ height: 3rem; }
 .h-14{ height: 5rem; }
+.h-15{ height: 6rem; }
 .w-1\/2{ width: 50%; }
 .w-full{ width: 100%; }
 .border-collapse{ border-collapse: collapse; }
@@ -661,6 +662,7 @@ video {
 .text-neutral-700{ color: #404040; }
 .text-slate-300{ color: #cbd5e1; }
 .text-slate-400{ color: #94a3b8; }
+.text-slate-500{ color: #404040; }
 .text-white{ color: #fff; }
 
 @page {
