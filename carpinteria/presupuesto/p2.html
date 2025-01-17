@@ -247,10 +247,11 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
       cliente = cliente.replace('%2F','/');
       const dCliente = cliente.split("þ");
 
-      //let nn = Intl.NumberFormat('es-ES', { maximumSignificantDigits: 2 }).format(params.subtotal);
+      // Cliente
+      //[Nombre]&"þ"&[DNI]&"þ"&[Dirección]&"þ"&[CP]&"þ"&[Población]&"þ"&[Teléfono]
 
       document.getElementById("nCliente").innerHTML = dCliente[0];
-      document.getElementById("dCliente").innerHTML = dCliente[1]+"<br>"+dCliente[3]+"<br>"+dCliente[2];
+      document.getElementById("dCliente").innerHTML = dCliente[1]+"<br>"+dCliente[2]+"<br>"+dCliente[3]+" "+dCliente[4]+"<br>"+dCliente[5];
       document.getElementById("prNumero").innerHTML = params.numero;
       document.getElementById("fechaDoc").innerHTML = params.fecha;
       document.getElementById("iva").innerHTML = "IVA ("+params.iva+"%):";
