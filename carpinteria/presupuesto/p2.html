@@ -191,14 +191,17 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
       }
 
       function trunc (x, posiciones = 2) {
-        let l = x.length;
-        let numStr = x;
-        if (x.indexOf('.')>=0){
-          let decimalLength = x.indexOf('.') + 1;
-          let numStr = x.substr(0, decimalLength + posiciones);
+        let numStr;
+        let l = x.replace('.', ',');
+        let i = l.indexOf(',');
+        
+        if (i >= 0){
+          let dl = i+1;
+          numStr = l.substr(0, dl + posiciones);
         }else{
           numStr=x+",00";
         }
+
         return numStr;
       }
 
