@@ -192,7 +192,7 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
 
       function trunc (x, posiciones = 2) {
         let l = x.length;
-        let numStr;
+        let numStr = x;
         if (x.indexOf('.')>=0){
           let decimalLength = x.indexOf('.') + 1;
           let numStr = x.substr(0, decimalLength + posiciones);
