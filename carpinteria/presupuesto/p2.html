@@ -268,9 +268,6 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
       cliente = cliente.replace('%2F','/');
       const dCliente = cliente.split("þ");
 
-      // Cliente
-      // [Nombre]&"þ"&[DNI]&"þ"&[Dirección]&"þ"&[CP]&"þ"&[Población]&"þ"&[Provincia]&"þ"&[Teléfono]
-
       document.getElementById("nCliente").innerHTML = dCliente[0];
       document.getElementById("dCliente").innerHTML = fCliente(dCliente);
       document.getElementById("prNumero").innerHTML = params.numero;
