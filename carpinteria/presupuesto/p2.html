@@ -197,6 +197,10 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
         }
       }
 
+      function fNum(n){
+        return Intl.NumberFormat('es-ES', { maximumSignificantDigits: 2 }).format(n);
+      }
+
       // Empezamos a buscar los parametros pasados al url
       const url = window.location.href;
       const paramsString = url.split("?")[1];
@@ -218,14 +222,16 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
       const lineas = decodeURI(params.lineas);        // Lineas del presupuesto
       const dCliente = cliente.split("þ");
 
+      //let nn = Intl.NumberFormat('es-ES', { maximumSignificantDigits: 2 }).format(params.subtotal);
+
       document.getElementById("nCliente").innerHTML = dCliente[0];
       document.getElementById("dCliente").innerHTML = dCliente[1]+"<br>"+dCliente[3]+"<br>Tel: "+dCliente[2];
       document.getElementById("prNumero").innerHTML = params.numero;
       document.getElementById("fechaDoc").innerHTML = params.fecha;
       document.getElementById("iva").innerHTML = "IVA ("+params.iva+"%):";
-      document.getElementById("subtotal").innerHTML = params.subtotal;
-      document.getElementById("taxes").innerHTML = params.taxes;
-      document.getElementById("total").innerHTML = params.total;
+      document.getElementById("subtotal").innerHTML = fNum(params.subtotal);
+      document.getElementById("taxes").innerHTML = fNum(params.taxes);
+      document.getElementById("total").innerHTML = fNum(params.total);
 
       addLine("pr01", lineas);
 
