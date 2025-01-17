@@ -183,10 +183,19 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
        * n = numero
        */
       function fNum(n){
-        return Intl.NumberFormat('es-ES', { 
+        const v = Intl.NumberFormat('es-ES', { 
           style: "currency",
           currency: "EUR",
           }).format(n);
+          return v;
+      }
+
+      function trunc (x, posiciones = 2) {
+        let s = x.toString()
+        let l = s.length
+        let decimalLength = s.indexOf('.') + 1
+        let numStr = s.substr(0, decimalLength + posiciones)
+        return Number(numStr)
       }
 
       function addLine(id, datos){
@@ -203,7 +212,7 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
         for (let i = 0; i < ln.length; i++){
           let dt = ln[i].split('þ');
           if(dt[0]){
-            tbl.insertRow().innerHTML = '<td class="border-b py-0 pl-2">'+dt[0]+'</td><td class="border-b py-0 pl-2 text-right">'+dt[1]+'</td><td class="border-b py-0 pl-2 text-right">'+dt[2]+'</td><td class="border-b py-0 pl-2 pr-3 text-right">'+dt[3]+'</td>';
+            tbl.insertRow().innerHTML = '<td class="border-b py-0 pl-2">'+dt[0]+'</td><td class="border-b py-0 pl-2 text-right">'+trunc(dt[1])+'</td><td class="border-b py-0 pl-2 text-right">'+trunc(dt[2])+'</td><td class="border-b py-0 pl-2 pr-3 text-right">'+trunc(dt[3])+'</td>';
           }
         }
       }
