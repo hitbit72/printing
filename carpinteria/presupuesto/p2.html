@@ -10,7 +10,7 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
   <meta http-equiv="cache-control" content="max-age=0" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Document</title>
+  <title>Presupuesto</title>
   <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
 </head>
 
@@ -218,14 +218,16 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
       const lineas = decodeURI(params.lineas);        // Lineas del presupuesto
       const dCliente = cliente.split("þ");
 
+      const total = params.total.toFixed(2);
+
       document.getElementById("nCliente").innerHTML = dCliente[0];
       document.getElementById("dCliente").innerHTML = dCliente[1]+"<br>"+dCliente[3]+"<br>Tel: "+dCliente[2];
       document.getElementById("prNumero").innerHTML = params.numero;
-      document.getElementById("fechaDoc").innerHTML = decodeURI(params.fecha);
-      document.getElementById("iva").innerHTML = "IVA ("+decodeURI(params.iva)+"%):";
-      document.getElementById("subtotal").innerHTML = decodeURI(params.subtotal);
-      document.getElementById("taxes").innerHTML = decodeURI(params.taxes);
-      document.getElementById("total").innerHTML = decodeURI(params.total);
+      document.getElementById("fechaDoc").innerHTML = params.fecha;
+      document.getElementById("iva").innerHTML = "IVA ("+params.iva+"%):";
+      document.getElementById("subtotal").innerHTML = params.subtotal;
+      document.getElementById("taxes").innerHTML = params.taxes;
+      document.getElementById("total").innerHTML = params.total;
 
       addLine("pr01", lineas);
 
