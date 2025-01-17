@@ -208,6 +208,25 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
         return ft;
       }
 
+      function addLine(id, datos){
+      /**
+       * Separador de datos: þ
+       * Separador de linea: θ
+       * [Puerta]&"þ"&[Cantidad]&"þ"&[Importe]&"þ"&[Total Linea]&"θ"
+       */
+
+        //get table body:
+        const tbl = document.getElementById(id).getElementsByTagName('tbody')[0];
+        const ln = datos.split('θ');
+
+        for (let i = 0; i < ln.length; i++){
+          let dt = ln[i].split('þ');
+          if(dt[0]){
+            tbl.insertRow().innerHTML = '<td class="border-b py-0 pl-2">'+dt[0]+'</td><td class="border-b py-0 pl-2 text-right">'+dt[1]+'</td><td class="border-b py-0 pl-2 text-center">'+dt[2]+'</td><td class="border-b py-0 pl-2 pr-3 text-right">'+dt[3]+'</td>';
+          }
+        }
+      }
+
       // Empezamos a buscar los parametros pasados al url
       const url = window.location.href;
       const paramsString = url.split("?")[1];
@@ -226,8 +245,8 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
 
       const appid = params.idapp;                   // APP  ID
       const cliente = decodeURI(params.cliente);    // Linea con todos los datos del cliente
-      let lineas = decodeURI(params.lineas);        // Lineas del presupuesto
-      let dCliente = cliente.split("þ");
+      const lineas = decodeURI(params.lineas);        // Lineas del presupuesto
+      const dCliente = cliente.split("þ");
 
       document.getElementById("nCliente").innerHTML = dCliente[0];
       document.getElementById("dCliente").innerHTML = dCliente[1]+"<br>"+dCliente[3]+"<br>Tel: "+dCliente[2];
@@ -237,6 +256,8 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
       document.getElementById("subtotal").innerHTML = decodeURI(params.subtotal);
       document.getElementById("taxes").innerHTML = decodeURI(params.taxes);
       document.getElementById("total").innerHTML = decodeURI(params.total);
+
+      addLine("pr01", lineas);
 
     </script>
 
