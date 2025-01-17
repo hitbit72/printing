@@ -128,11 +128,14 @@
             font-size: 22px;
         }
 		
+        @page {
+            margin: 0;
+        }
 	    @media print {
 		    body, .contenedor, .esquela {
 			    margin: 0;
-				  /* box-shadow: none; */
-				  border: none;
+				border: none;
+                -webkit-print-color-adjust: exact;
 			}
 		}
     </style>
