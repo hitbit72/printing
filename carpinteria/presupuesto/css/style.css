@@ -552,6 +552,10 @@ video {
 .bg-main{ background-color: #5a2f10; }
 .bg-slate-100{ background-color: #f1f5f9; }
 
+.mr-1{ margin-right: 10px; }
+.mr-2{ margin-right: 15px; }
+.mr-3{ margin-right: 20px; }
+
 .mt-1{ margin-top: 10px; }
 .mt-2{ margin-top: 15px; }
 .mt-3{ margin-top: 20px; }

@@ -193,6 +193,52 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
         </footer>
       </div>
     </div>
-</body>
 
+    <script>
+
+      /** 
+      *   Crea la url a la foto dentro de appsheets
+      * 
+      *   id = id de la aplicacion
+      *   tabla = tabla donde se almacena la foto
+      *   imagen = celda donde esta la imagen
+      */
+      function fotoURL(id, tabla, imagen){
+        const ft = "https://www.appsheet.com/template/gettablefileurl?appName="+id+"&tableName="+tabla+"&fileName="+imagen;
+        return ft;
+      }
+
+      // Empezamos a buscar los parametros pasados al url
+      const url = window.location.href;
+      const paramsString = url.split("?")[1];
+      const paramsArray = paramsString.split("&");
+      const params = {};
+
+      paramsArray.forEach(param => {
+        const [key, value] = param.split("=");
+        params[key] = value;
+      });
+
+      /**
+       * Separador de datos: þ
+       * Separador de linea: θ
+       */
+
+      const appid = params.idapp;                   // APP  ID
+      const cliente = decodeURI(params.cliente);    // Linea con todos los datos del cliente
+      let lineas = decodeURI(params.lineas);        // Lineas del presupuesto
+      let dCliente = cliente.split("þ");
+
+      document.getElementById("nCliente").innerHTML = dCliente[0];
+      document.getElementById("dCliente").innerHTML = dCliente[1]+"<br>"+dCliente[3]+"<br>Tel: "+dCliente[2];
+      document.getElementById("prNumero").innerHTML = params.numero;
+      document.getElementById("fechaDoc").innerHTML = decodeURI(params.fecha);
+      document.getElementById("iva").innerHTML = "IVA ("+decodeURI(params.iva)+"%):";
+      document.getElementById("subtotal").innerHTML = decodeURI(params.subtotal);
+      document.getElementById("taxes").innerHTML = decodeURI(params.taxes);
+      document.getElementById("total").innerHTML = decodeURI(params.total);
+
+    </script>
+
+  </body>
 </html>
