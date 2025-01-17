@@ -195,9 +195,9 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
         let numStr;
         if (x.indexOf('.')>=0){
           let decimalLength = x.indexOf('.') + 1;
-          let numStr = s.substr(0, decimalLength + posiciones);
+          let numStr = x.substr(0, decimalLength + posiciones);
         }else{
-          numStr=s+",00";
+          numStr=x+",00";
         }
         return numStr;
       }
