@@ -60,19 +60,19 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
             <tr>
               <td class="w-1/2 align-top">
                 <div id="empresa" class="text-xs text-neutral-600">
-                  <p id="nEmpresa" class="font-bold">Crta. Mancha Real a Cazorla, 12</p>
+                  <p id="nEmpresa" class="font-bold">Crta. Mancha Real a Cazorla, 26</p>
                   <p id="dEmpresa">23537 Bedmar - Jaén<br>
-                  Telef: 953 76 03 53<br>
-                  Móvil: 600 25 00 92</p>
+                  953 76 03 53<br>
+                  600 25 00 92</p>
                 </div>
               </td>
               <td class="w-1/2 align-top text-right">
                 <div id="cliente" class="text-xs text-neutral-600">
                   <p id="nCliente" class="font-bold">Felipe Blanco Garcia</p>
-                  <p id="dCliente">DNI: 4000000N<br>
+                  <p id="dCliente">4000000N<br>
                   C/ Eguido San Sebastian, 2<br>
                   23530 Jimena - Jaén<br>
-                  Telf: 635 89 89 89<br>
+                  635 89 89 89<br>
                 </div>
               </td>
             </tr>
@@ -224,6 +224,23 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
         }
       }
 
+      /**
+       * Formato salida de datos del cliente
+       * [Nombre]&"þ"&[DNI]&"þ"&[Dirección]&"þ"&[CP]&"þ"&[Población]&"þ"&[Provincia]&"þ"&[Teléfono]
+       */
+      function fCliente(cl){
+        let datos;
+        if (cl[1] != ""){ datos +=cl[1]+"<br>"; }
+        if (cl[2] != ""){ datos +=cl[2]+"<br>"; }
+        if (cl[3] != ""){ datos +=cl[3]+" "+cl[4]+" "+cl[5]+"<br>"; 
+        }else{
+          datos +=cl[4]+" "+cl[5]+"<br>"; }
+        if (cl[6] != ""){ datos +=cl[6]; }
+
+        return datos;
+      }
+
+
       // Empezamos a buscar los parametros pasados al url
       const url = window.location.href;
       const paramsString = url.split("?")[1];
@@ -248,10 +265,10 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
       const dCliente = cliente.split("þ");
 
       // Cliente
-      //[Nombre]&"þ"&[DNI]&"þ"&[Dirección]&"þ"&[CP]&"þ"&[Población]&"þ"&[Teléfono]
+      // [Nombre]&"þ"&[DNI]&"þ"&[Dirección]&"þ"&[CP]&"þ"&[Población]&"þ"&[Provincia]&"þ"&[Teléfono]
 
       document.getElementById("nCliente").innerHTML = dCliente[0];
-      document.getElementById("dCliente").innerHTML = dCliente[1]+"<br>"+dCliente[2]+"<br>"+dCliente[3]+" "+dCliente[4]+"<br>"+dCliente[5];
+      document.getElementById("dCliente").innerHTML = fCliente(dCliente);
       document.getElementById("prNumero").innerHTML = params.numero;
       document.getElementById("fechaDoc").innerHTML = params.fecha;
       document.getElementById("iva").innerHTML = "IVA ("+params.iva+"%):";
