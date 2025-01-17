@@ -191,11 +191,15 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
       }
 
       function trunc (x, posiciones = 2) {
-        let s = x.toString()
-        let l = s.length
-        let decimalLength = s.indexOf('.') + 1
-        let numStr = s.substr(0, decimalLength + posiciones)
-        return Number(numStr)
+        let l = x.length;
+        let numStr;
+        if (x.indexOf('.')>=0){
+          let decimalLength = x.indexOf('.') + 1;
+          let numStr = s.substr(0, decimalLength + posiciones);
+        }else{
+          numStr=s+",00";
+        }
+        return numStr;
       }
 
       function addLine(id, datos){
