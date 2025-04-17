@@ -1,6 +1,17 @@
 
 <script>
 
+
+function doGet(e){
+  
+  // app script google
+  // Datos app
+  const filas = e.parameter.f || 0;
+  const columnas = e.parameter.c || 0;
+  const inicio = e.parameter.i || 0;
+
+}
+
 function generarTablaHTML(filas, columnas, inicio=0) {
   let total = filas * columnas;
   console.log("Filas: "+filas+" Columnas: "+columnas)
