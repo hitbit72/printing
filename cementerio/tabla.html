@@ -45,6 +45,8 @@
     }
     if (inicio <=0) { inicio=1; }
     let html = "<table><tbody>";
+    let html2 = "&lt;table&gt;&lt;tbody&gt;";
+    
     let contador = inicio;
     let matrizTabla = [];
 	  
@@ -71,18 +73,20 @@
     // Construir el HTML de la tabla a partir de la matriz
     for (let f = 0; f < filas; f++) {
       html += '<tr>';
+      html2 += '&lt;tr&gt;';
       for (let c = 0; c < columnas; c++) {
         html += `<td>${matrizTabla[f][c]}</td>`;
+	html2 += `&lt;td&gt${matrizTabla[f][c]}&lt;/td&gt`;
       }
       html += '</tr>';
+      html2 += '&lt;/tr&gt;';
     }
 
     html += '</tbody></table>';
+    html2 += '&lt;/tbody&gt;&lt;/table&gt;';
     document.getElementById("tablaHTML").innerHTML = html;
-    let nTable = html.replace("<", "&lt;");
-    nTable = nTable.replace(">", "&gt;");
-    document.getElementById("codeHTML").innerHTML = html;
-    document.write("<br><pre><code>"+nTable+"</code></pre>");
+    document.getElementById("codeHTML").innerHTML = html2;
+    //document.write("<br><pre><code>"+nTable+"</code></pre>");
   }
 
 	
