@@ -2,7 +2,11 @@
 <html>
 <head></head>
 <body>
-
+	<div id="tablaHTML"></div>
+	<p></p>
+	<pre>
+		<code id="codeHTML"></code>
+	</pre>
 <script>
 
 
@@ -32,6 +36,7 @@
     let html = "<table><tbody>";
     let contador = inicio;
     let matrizTabla = [];
+	  
     // Crear una matriz bidimensional para almacenar los valores
     for (let f = 0; f < filas; f++) {
       matrizTabla[f] = [];
@@ -62,7 +67,11 @@
     }
 
     html += '</tbody></table>';
-    document.write(html);
+    document.getElementById("tablaHTML").innerHTML = html;
+    let nTable = html.replace("<", "&lt;");
+    nTable = nTable.replace(">", "&gt;");
+    document.getElementById("codeHTML").innerHTML = nTable;
+    //document.write(html);
   }
 
 	
