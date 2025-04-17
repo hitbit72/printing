@@ -22,6 +22,7 @@
   let i1 = params.i;             // Inicio
 
 
+
   function generarTablaHTML(filas, columnas, inicio) {
     let totalCeldas = filas * columnas;
     if (totalCeldas <= 0) {
@@ -40,9 +41,14 @@
       }
     }
 
-    // Llenar la matriz comenzando desde la celda inferior izquierda
+    // Llenar la primera columna desde abajo hacia arriba
     for (let f = filas - 1; f >= 0; f--) {
-      for (let c = 0; c < columnas; c++) {
+      matrizTabla[f][0] = contador++;
+    }
+
+    // Llenar las columnas restantes, fila por fila
+    for (let c = 1; c < columnas; c++) {
+      for (let f = filas - 1; f >= 0; f--) {
         matrizTabla[f][c] = contador++;
       }
     }
@@ -59,6 +65,8 @@
     html += '</tbody></table>';
     document.write(html);
   }
+
+	
 	
   function generarTablaHTML2(filas, columnas) {
     let total = filas * columnas;
