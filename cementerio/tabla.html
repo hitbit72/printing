@@ -114,21 +114,27 @@
       }
     }
 
-    // Llenar la primera columna desde abajo hacia arriba
-    for (let f = filas - 1; f >= 0; f--) {
-      matrizTabla[f][0] = contador++;
-    }
-
+   
     
-    // Llenar las columnas restantes, fila por fila
     if (orden <=0) {
+      // Llenar la primera columna desde abajo hacia arriba
+      for (let f = filas - 1; f >= 0; f--) {
+        matrizTabla[f][0] = contador++;
+      }
+      // Llenar las columnas restantes, fila por fila
       for (let c = 1; c < columnas; c++) {
         for (let f = filas - 1; f >= 0; f--) {
           matrizTabla[f][c] = contador++;
         }
       }
     }
+    
     if (orden == 1) {
+      // Llenar la primera columna desde abajo hacia arriba
+      for (let f = 0; f <= filas; f++) {
+        matrizTabla[f][0] = contador++;
+      }
+      // Llenar las columnas restantes, fila por fila
       for (let c = columnas; c > 1; c--) {
         for (let f = filas - 1; f >= 0; f--) {
           matrizTabla[f][c] = contador++;
