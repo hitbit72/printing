@@ -22,7 +22,7 @@
   let i1 = params.i;             // Inicio
 
 
-  function generarTablaHTML2(filas, columnas, inicio) {
+  function generarTablaHTML(filas, columnas, inicio) {
     let totalCeldas = filas * columnas;
     if (totalCeldas <= 0) {
       return "";
@@ -30,12 +30,28 @@
 
     let html = "<table><tbody>";
     let contador = inicio;
+    let matrizTabla = [];
 
+    // Crear una matriz bidimensional para almacenar los valores
+    for (let f = 0; f < filas; f++) {
+      matrizTabla[f] = [];
+      for (let c = 0; c < columnas; c++) {
+        matrizTabla[f][c] = 0; // Inicializar con un valor temporal
+      }
+    }
+
+    // Llenar la matriz comenzando desde la celda inferior izquierda
+    for (let f = filas - 1; f >= 0; f--) {
+      for (let c = 0; c < columnas; c++) {
+        matrizTabla[f][c] = contador++;
+      }
+    }
+
+    // Construir el HTML de la tabla a partir de la matriz
     for (let f = 0; f < filas; f++) {
       html += '<tr>';
       for (let c = 0; c < columnas; c++) {
-        html += `<td>${contador}</td>`;
-        contador++;
+        html += `<td>${matrizTabla[f][c]}</td>`;
       }
       html += '</tr>';
     }
