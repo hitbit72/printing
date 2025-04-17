@@ -37,11 +37,11 @@
   // Script para insertar contenido dinamico
   const f1 = params.f;            // Filas
   const c1 = params.c;           // Columnas
-  let i1 = params.i;             // Inicio
+  const i1 = params.i;             // Inicio
+  const o1 = params.o;             // orden
 
 
-
-  function generarTablaHTML(filas, columnas, inicio) {
+  function generarTablaHTML1(filas, columnas, inicio) {
     let totalCeldas = filas * columnas;
     if (totalCeldas <= 0) {
       return "";
@@ -92,9 +92,71 @@
     //document.write("<br><pre><code>"+nTable+"</code></pre>");
   }
 
+
+  // Generacion de tablas V4
+  function generarTablaHTML(filas, columnas, inicio, orden=0) {
+    let totalCeldas = filas * columnas;
+    if (totalCeldas <= 0) {
+      return "";
+    }
+    if (inicio <=0) { inicio=1; }
+    let html = "<table border=1><tbody>";
+    let html2 = "&lt;table&gt;&lt;tbody&gt;";
+    
+    let contador = inicio;
+    let matrizTabla = [];
+	  
+    // Crear una matriz bidimensional para almacenar los valores
+    for (let f = 0; f < filas; f++) {
+      matrizTabla[f] = [];
+      for (let c = 0; c < columnas; c++) {
+        matrizTabla[f][c] = 0; // Inicializar con un valor temporal
+      }
+    }
+
+    // Llenar la primera columna desde abajo hacia arriba
+    for (let f = filas - 1; f >= 0; f--) {
+      matrizTabla[f][0] = contador++;
+    }
+
+    
+    // Llenar las columnas restantes, fila por fila
+    if (orden <=0) {
+      for (let c = 1; c < columnas; c++) {
+        for (let f = filas - 1; f >= 0; f--) {
+          matrizTabla[f][c] = contador++;
+        }
+      }
+    }
+    if (orden == 1) {
+      for (let c = columnas; c > 1; c--) {
+        for (let f = filas - 1; f >= 0; f--) {
+          matrizTabla[f][c] = contador++;
+        }
+      }
+    }
+	  
+    // Construir el HTML de la tabla a partir de la matriz
+    for (let f = 0; f < filas; f++) {
+      html += '<tr>';
+      html2 += '&lt;tr&gt;';
+      for (let c = 0; c < columnas; c++) {
+        html += `<td>${matrizTabla[f][c]}</td>`;
+	html2 += `&lt;td&gt${matrizTabla[f][c]}&lt;/td&gt`;
+      }
+      html += '</tr>';
+      html2 += '&lt;/tr&gt;';
+    }
+
+    html += '</tbody></table>';
+    html2 += '&lt;/tbody&gt;&lt;/table&gt;';
+    document.getElementById("tablaHTML").innerHTML = html;
+    document.getElementById("codeHTML").innerHTML = html2;
+    //document.write("<br><pre><code>"+nTable+"</code></pre>");
+  }
 	
 	
-  function generarTablaHTML2(filas, columnas) {
+  function generarTablaHTML3(filas, columnas) {
     let total = filas * columnas;
     // console.log("Filas: "+filas+" Columnas: "+columnas)
     if (total<=0){ return ""; }
@@ -117,7 +179,7 @@
     document.write(html);
   }
 
-  generarTablaHTML(f1, c1, i1);
+  generarTablaHTML(f1, c1, i1, o1);
 	
 </script>
 
