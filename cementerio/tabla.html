@@ -28,11 +28,10 @@
     if (totalCeldas <= 0) {
       return "";
     }
-
+    if (inicio <=0) { inicio=1; }
     let html = "<table><tbody>";
     let contador = inicio;
     let matrizTabla = [];
-
     // Crear una matriz bidimensional para almacenar los valores
     for (let f = 0; f < filas; f++) {
       matrizTabla[f] = [];
