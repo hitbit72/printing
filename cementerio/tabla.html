@@ -22,7 +22,29 @@
   let i1 = params.i;             // Inicio
 
 
-  function generarTablaHTML(filas, columnas, inicio=0) {
+  function generarTablaHTML2(filas, columnas, inicio) {
+    let totalCeldas = filas * columnas;
+    if (totalCeldas <= 0) {
+      return "";
+    }
+
+    let html = "<table><tbody>";
+    let contador = inicio;
+
+    for (let f = 0; f < filas; f++) {
+      html += '<tr>';
+      for (let c = 0; c < columnas; c++) {
+        html += `<td>${contador}</td>`;
+        contador++;
+      }
+      html += '</tr>';
+    }
+
+    html += '</tbody></table>';
+    document.write(html);
+  }
+	
+  function generarTablaHTML(filas, columnas) {
     let total = filas * columnas;
     // console.log("Filas: "+filas+" Columnas: "+columnas)
     if (total<=0){ return ""; }
@@ -35,20 +57,17 @@
     for (let f = filas - 1; f >= 0; f--) {
       html += '<tr>';
       for (let c = 0; c < columnas; c++) {
-        // let numero = f + filas * c + 1;
-	let numero = f + inicio * c + 1;
+        let numero = f + filas * c + 1;
         html += "<td>"+numero+"</td>";
       }
       html += '</tr>';
     }
 
     html += '</tbody></table>';
-
-    //cTableHTML.innerHTML = html;
     document.write(html);
   }
 
-  generarTablaHTML(f1, c1, i1);
+  generarTablaHTML2(f1, c1, i1);
 	
 </script>
 
