@@ -18,9 +18,9 @@
   });
 
   // Script para insertar contenido dinamico
-  const filas = params.f;            // Filas
-  const columnas = params.c;         // Columnas
-  let inicio = params.i;             // Inicio
+  const f1 = params.f;            // Filas
+  const c1 = params.c;           // Columnas
+  let i1 = params.i;             // Inicio
 
 
   function generarTablaHTML(filas, columnas, inicio=0) {
@@ -47,7 +47,7 @@
     cTableHTML.innerHTML = html;
   }
 
-  generarTablaHTML(filas, columnas, inicio);
+  generarTablaHTML(f1, c1, i1);
 	
 </script>
 
