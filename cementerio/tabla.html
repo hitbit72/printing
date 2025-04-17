@@ -1,41 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<body>
+<div id="contenedorTabla"></div>
 
 <script>
 
-    const url = window.location.href;
-    const paramsString = url.split("?")[1];
-    const paramsArray = paramsString.split("&");
-    const params = {};
-    paramsArray.forEach(param => {
-  	    const [key, value] = param.split("=");
-  	    params[key] = value;
-    });
+
+  // Recuperar los parametros
+  const url = window.location.href;
+  const paramsString = url.split("?")[1];
+  const paramsArray = paramsString.split("&");
+  const params = {};
+  paramsArray.forEach(param => {
+    const [key, value] = param.split("=");
+    params[key] = value;
+  });
+
+  // Script para insertar contenido dinamico
+  const filas = params.f;               // APP  ID
+  const columnas = params.c;           // Usar foto usuario?
+  let inicio = params.i;             // Tabla foto
+
+
+  function generarTablaHTML(filas, columnas, inicio=0) {
+    let total = filas * columnas;
+    // console.log("Filas: "+filas+" Columnas: "+columnas)
+    if (total<=0){ return ""; }
+    
+    // Contenedor de la tabla
+    let cTableHTML = document.getElementById("contenedorTabla");
 	  
-    // Script para insertar contenido dinamico
-    const filas = params.f;               // APP  ID
-    const columnas = params.c;           // Usar foto usuario?
-    const inicio = params.i;             // Tabla foto
-  
+    let html = "<table><tbody>";
 
-function generarTablaHTML(filas, columnas, inicio=0) {
-  let total = filas * columnas;
-  console.log("Filas: "+filas+" Columnas: "+columnas)
-  if (total<=0){ return ""; }
-
-  let html = "<table><tbody>";
-
-  for (let f = filas - 1; f >= 0; f--) {
-    html += '<tr>';
-    for (let c = 0; c < columnas; c++) {
-      let numero = f + filas * c + 1;
-      html += "<td>"+numero+"</td>";
+    for (let f = filas - 1; f >= 0; f--) {
+      html += '<tr>';
+      for (let c = 0; c < columnas; c++) {
+        let numero = f + filas * c + 1;
+        html += "<td>"+numero+"</td>";
+      }
+      html += '</tr>';
     }
-    html += '</tr>';
+
+    html += '</tbody></table>';
+
+    cTableHTML.innerHTML = html;
   }
 
-  html += '</tbody></table>';
-  return html;
-}
-
-
- 
+  generarTablaHTML(filas, columnas, inicio);
+	
 </script>
+
+</body>
+</html>
