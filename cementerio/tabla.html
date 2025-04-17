@@ -131,7 +131,7 @@
     
     if (orden == 1) {
       // Llenar la primera columna desde abajo hacia arriba
-      for (let f = 0; f <= filas; f++) {
+      for (let f = 0; f <= filas-1; f++) {
         matrizTabla[f][0] = contador++;
       }
       // Llenar las columnas restantes, fila por fila
