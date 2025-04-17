@@ -35,7 +35,8 @@
     for (let f = filas - 1; f >= 0; f--) {
       html += '<tr>';
       for (let c = 0; c < columnas; c++) {
-        let numero = f + filas * c + 1;
+        // let numero = f + filas * c + 1;
+	let numero = f + inicio * c + 1;
         html += "<td>"+numero+"</td>";
       }
       html += '</tr>';
