@@ -3,7 +3,7 @@
 <head></head>
 <body>
 	<div id="tablaHTML"></div>
-	<p></p>
+	<p> <br></p>
 	<pre>
 		<code id="codeHTML"></code>
 	</pre>
@@ -70,8 +70,8 @@
     document.getElementById("tablaHTML").innerHTML = html;
     let nTable = html.replace("<", "&lt;");
     nTable = nTable.replace(">", "&gt;");
-    document.getElementById("codeHTML").innerHTML = html;
-    //document.write(html);
+    document.getElementById("codeHTML").innerHTML = nTable;
+    document.write("<br><pre><code>"+nTable+"</code></pre>");
   }
 
 	
