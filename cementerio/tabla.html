@@ -1,16 +1,20 @@
 
 <script>
 
-
-function doGet(e){
+    const url = window.location.href;
+    const paramsString = url.split("?")[1];
+    const paramsArray = paramsString.split("&");
+    const params = {};
+    paramsArray.forEach(param => {
+  	    const [key, value] = param.split("=");
+  	    params[key] = value;
+    });
+	  
+    // Script para insertar contenido dinamico
+    const filas = params.f;               // APP  ID
+    const columnas = params.c;           // Usar foto usuario?
+    const inicio = params.i;             // Tabla foto
   
-  // app script google
-  // Datos app
-  const filas = e.parameter.f || 0;
-  const columnas = e.parameter.c || 0;
-  const inicio = e.parameter.i || 0;
-
-}
 
 function generarTablaHTML(filas, columnas, inicio=0) {
   let total = filas * columnas;
@@ -33,4 +37,5 @@ function generarTablaHTML(filas, columnas, inicio=0) {
 }
 
 
+ 
 </script>
