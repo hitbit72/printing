@@ -2,7 +2,6 @@
 <html>
 <head></head>
 <body>
-<div id="contenedorTabla"></div>
 
 <script>
 
@@ -44,7 +43,8 @@
 
     html += '</tbody></table>';
 
-    cTableHTML.innerHTML = html;
+    //cTableHTML.innerHTML = html;
+    document.write(html);
   }
 
   generarTablaHTML(f1, c1, i1);
