@@ -31,6 +31,7 @@
 	<h1>Compisición de nichos</h1>
 	<h4>Copie el código de la tabla y pegelo en el campo correspondiente</h4>
 	<div id="tablaHTML"></div>
+	<div id="imgDonwload"></div>
 	<p> </p>
 	Código:
 	<div id="codeHTML"></div>
@@ -234,7 +235,8 @@ function generarImagen() {
     const link = document.createElement('a');
     link.href = imgData;
     link.download = 'tabla.png';
-    link.click();
+    //link.click();
+    document.getElementById("imgDonwload").innerHTML=link.href;
   });
 }
   
