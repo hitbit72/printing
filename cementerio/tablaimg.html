@@ -13,6 +13,7 @@
   }
   table.visible tbody td {
     font-size: 12px;
+    width: 20px;
   }
 	
   #codeHTML {
@@ -29,13 +30,11 @@
 </head>
 <body>
 	<h1>Compisición de nichos</h1>
-	<h4>Copie el código de la tabla y pegelo en el campo correspondiente</h4>
+	<h4>Descarge la imagen y agregela al formulario del Sector</h4>
 	<div id="tablaHTML"></div>
+	<p>Composición:</p>
 	<div id="imgDonwload"></div>
-	<p> </p>
-	Código:
-	<div id="codeHTML"></div>
-	
+
 <script>
 
 
@@ -104,7 +103,7 @@
     html += '</tbody></table>';
     html2 += '&lt;/tbody&gt;&lt;/table&gt;';
     document.getElementById("tablaHTML").innerHTML = html;
-    document.getElementById("codeHTML").innerHTML = html2;
+    //document.getElementById("codeHTML").innerHTML = html2;
     //document.write("<br><pre><code>"+nTable+"</code></pre>");
   }
 
@@ -220,7 +219,7 @@ function genTableHTML(filas, columnas, inicio, orden=0) {
     html += '</tbody></table>';
     html2 += '&lt;/tbody&gt;&lt;/table&gt;';
     document.getElementById("tablaHTML").innerHTML = html;
-    document.getElementById("codeHTML").innerHTML = html2;
+    //document.getElementById("codeHTML").innerHTML = html2;
 	
 }
 
@@ -239,6 +238,8 @@ function generarImagen() {
     document.getElementById("imgDonwload").innerHTML="<img src='"+link.href+"'>";
     //window.location.replace("img.html?img="+link.href);
     //window.location.replace(link.href);
+
+    document.getElementById("tablaHTML").style.display = "none";
   });
 }
   
