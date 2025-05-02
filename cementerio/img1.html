@@ -60,6 +60,7 @@
   const o1 = params.o;             // orden
   const n1 = params.n;             // nicho
 
+  n1 = !isNaN(n1) ? Number(n1) : 0;
 
   // Izquierda (abajo izquierda -> arriba, derecha)
   function generarTablaHTML1(filas, columnas, inicio) {
@@ -99,7 +100,7 @@
       html += '<tr>';
       html2 += '&lt;tr&gt;';
       for (let c = 0; c < columnas; c++) {
-        if (n1 == matrizTabla[f][c]){
+        if (n1 == Number(matrizTabla[f][c])){
           html += `<td class="activo">${matrizTabla[f][c]}</td>`;
           html2 += `&lt;td class="activo"&gt${matrizTabla[f][c]}&lt;/td&gt`;
         } else {
