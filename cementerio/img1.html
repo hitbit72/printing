@@ -145,13 +145,19 @@ function generarImagen() {
     const link = document.createElement('a');
     link.href = imgData;
     link.download = 'tabla.png';
-    if (rd1 == 1){ window.location.replace(link.href); }
-    //link.click();
-    document.getElementById("tablaHTML").style.display = "none";
-    document.getElementById("imgDonwload").innerHTML="<img src='"+link.href+"'>";
+
+    if (rd1 == 1){
+	document.body.innerHTML = link.href;
+    }else{
+    	document.getElementById("tablaHTML").style.display = "none";
+    	document.getElementById("imgDonwload").innerHTML="<img src='"+link.href+"'>";
+    }
+	  
     //document.getElementById("srcDownload").innerHTML=link.href;
     //window.location.replace("img.html?img="+link.href);
-    
+    // if (rd1 == 1){ window.location.replace(link.href); }
+    //link.click();
+
   });
 }
   
