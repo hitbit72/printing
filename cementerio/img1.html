@@ -147,7 +147,7 @@ function generarImagen() {
     link.download = 'tabla.png';
 
     if (rd1 == 1){
-	document.body.innerHTML = link.href;
+	document.body.innerHTML = "<img src='"+link.href+"'>";
     }else{
     	document.getElementById("tablaHTML").style.display = "none";
     	document.getElementById("imgDonwload").innerHTML="<img src='"+link.href+"'>";
