@@ -271,8 +271,9 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
       numDoc = numDoc.replace('%2F','/');
 
       let fechaDoc = decodeURI(params.fecha); // Fecha de presupuesto
-      fechaDoc = fechaDoc.replace('%2F','/');
-
+      fechaDoc = fechaDoc.replaceAll('%2F','/');
+      //fechaDoc = fechaDoc.replace('%2F','/');
+      
       document.getElementById("nCliente").innerHTML = dCliente[0];
       document.getElementById("dCliente").innerHTML = fCliente(dCliente);
       document.getElementById("prNumero").innerHTML = numDoc;
