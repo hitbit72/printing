@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Compisición de nichos</title>
+<style>
+  table {
+    /* border: 1px solid #000000; */
+    /* border-collapse: collapse; */
+  }
+  table td, table th {
+    padding: 3px 3px;
+  }
+  table tbody td {
+    font-size: 14px;
+    width: 20px;
+    border: 1px solid #000000;
+    text-align: center;
+  }
+	
+  #codeHTML {
+    white-space: pre-wrap; /* Respeta saltos de línea y espacios */
+    font-family: monospace; /* Fuente de ancho fijo para mejor legibilidad del código */
+    background-color: #f0f0f0;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  
+</head>
+<body>
+	<h1>Composición de nichos</h1>
+	<h4>Descarge la imagen y agregela al formulario del Sector</h4>
+	<div id="tablaHTML"></div>
+	<p>Imagen:</p>
+	<div id="imgDonwload"></div>
+
+<script>
+
+
+  // Recuperar los parametros
+  const url = window.location.href;
+  const paramsString = url.split("?")[1];
+  const paramsArray = paramsString.split("&");
+  const params = {};
+  paramsArray.forEach(param => {
+    const [key, value] = param.split("=");
+    params[key] = value;
+  });
+
+  // Script para insertar contenido dinamico
+  const f1 = params.f;            // Filas
+  const c1 = params.c;           // Columnas
+  const i1 = params.i;             // Inicio
+  const o1 = params.o;             // orden
+
+
+  // Izquierda (abajo izquierda -> arriba, derecha)
+  function generarTablaHTML1(filas, columnas, inicio) {
+    let totalCeldas = filas * columnas;
+    if (totalCeldas <= 0) {
+      return "";
+    }
+    if (inicio <=0) { inicio=1; }
+    let html = "<table id='miTabla' class='visible'><tbody>";
+    let html2 = "&lt;table&gt;&lt;tbody&gt;";
+    
+    let contador = inicio;
+    let matrizTabla = [];
+	  
+    // Crear una matriz bidimensional para almacenar los valores
+    for (let f = 0; f < filas; f++) {
+      matrizTabla[f] = [];
+      for (let c = 0; c < columnas; c++) {
+        matrizTabla[f][c] = 0; // Inicializar con un valor temporal
+      }
+    }
+
+    // Llenar la primera columna desde abajo hacia arriba
+    for (let f = filas - 1; f >= 0; f--) {
+      matrizTabla[f][0] = contador++;
+    }
+
+    // Llenar las columnas restantes, fila por fila
+    for (let c = 1; c < columnas; c++) {
+      for (let f = filas - 1; f >= 0; f--) {
+        matrizTabla[f][c] = contador++;
+      }
+    }
+
+    // Construir el HTML de la tabla a partir de la matriz
+    for (let f = 0; f < filas; f++) {
+      html += '<tr>';
+      html2 += '&lt;tr&gt;';
+      for (let c = 0; c < columnas; c++) {
+        html += `<td>${matrizTabla[f][c]}</td>`;
+	html2 += `&lt;td&gt${matrizTabla[f][c]}&lt;/td&gt`;
+      }
+      html += '</tr>';
+      html2 += '&lt;/tr&gt;';
+    }
+
+    html += '</tbody></table>';
+    html2 += '&lt;/tbody&gt;&lt;/table&gt;';
+    document.getElementById("tablaHTML").innerHTML = html;
+    //document.getElementById("codeHTML").innerHTML = html2;
+    //document.write("<br><pre><code>"+nTable+"</code></pre>");
+  }
+
+
+// Derecha (abajo derecha -> arriba, izquierda)
+function generarTablaHTML(filas, columnas, inicio) {
+    let totalCeldas = filas * columnas;
+    if (totalCeldas <= 0) {
+      return "";
+    }
+    if (inicio <=0) { inicio=1; }
+    let html = "<table id='miTabla' class='visible'><tbody>";
+    let html2 = "&lt;table&gt;&lt;tbody&gt;";
+    
+    let contador = inicio;
+    let matrizTabla = [];
+
+    // Crear una matriz bidimensional para almacenar los valores
+    for (let f = 0; f < filas; f++) {
+      matrizTabla[f] = [];
+      for (let c = 0; c < columnas; c++) {
+        matrizTabla[f][c] = 0; // Inicializar con un valor temporal
+      }
+    }
+
+    // Llenar la última columna desde abajo hacia arriba
+    for (let f = filas - 1; f >= 0; f--) {
+      matrizTabla[f][columnas - 1] = contador++;
+    }
+
+    // Llenar las columnas restantes, fila por fila, de derecha a izquierda
+    for (let c = columnas - 2; c >= 0; c--) {
+      for (let f = filas - 1; f >= 0; f--) {
+        matrizTabla[f][c] = contador++;
+      }
+    }
+
+    // Construir el HTML de la tabla a partir de la matriz
+    for (let f = 0; f < filas; f++) {
+      html += '<tr>';
+      for (let c = 0; c < columnas; c++) {
+        html += `<td>${matrizTabla[f][c]}</td>`;
+      }
+      html += '</tr>';
+    }
+
+    html += '</tbody></table>';
+    document.getElementById("tablaHTML").innerHTML = html;
+  }
+	
+function genTableHTML(filas, columnas, inicio, orden=0) {
+    let totalCeldas = filas * columnas;
+    if (totalCeldas <= 0) {
+      return "";
+    }
+    if (inicio <=0) { inicio=1; }
+    let html = "<table id='miTabla' class='visible'><tbody>";
+    let html2 = "&lt;table&gt;&lt;tbody&gt;";
+    
+    let contador = inicio;
+    let matrizTabla = [];
+
+    // Crear una matriz bidimensional para almacenar los valores
+    for (let f = 0; f < filas; f++) {
+      matrizTabla[f] = [];
+      for (let c = 0; c < columnas; c++) {
+        matrizTabla[f][c] = 0; // Inicializar con un valor temporal
+      }
+    }
+
+	// Izquierda
+	if ( orden == 0) {
+		// Llenar la primera columna desde abajo hacia arriba
+		for (let f = filas - 1; f >= 0; f--) {
+		matrizTabla[f][0] = contador++;
+		}
+		
+		// Llenar las columnas restantes, fila por fila
+		for (let c = 1; c < columnas; c++) {
+			for (let f = filas - 1; f >= 0; f--) {
+				matrizTabla[f][c] = contador++;
+			}
+		}
+	}
+	
+	// Derecha
+	if (orden == 1) {
+		// Llenar la última columna desde abajo hacia arriba
+		for (let f = filas - 1; f >= 0; f--) {
+		matrizTabla[f][columnas - 1] = contador++;
+		}
+
+		// Llenar las columnas restantes, fila por fila, de derecha a izquierda
+		for (let c = columnas - 2; c >= 0; c--) {
+			for (let f = filas - 1; f >= 0; f--) {
+				matrizTabla[f][c] = contador++;
+			}
+		}
+	}
+	
+    // Construir el HTML de la tabla a partir de la matriz
+    for (let f = 0; f < filas; f++) {
+      html += '<tr>';
+      html2 += '&lt;tr&gt;';
+      for (let c = 0; c < columnas; c++) {
+        html += `<td>${matrizTabla[f][c]}</td>`;
+	html2 += `&lt;td&gt${matrizTabla[f][c]}&lt;/td&gt`;
+      }
+      html += '</tr>';
+      html2 += '&lt;/tr&gt;';
+    }
+	
+    html += '</tbody></table>';
+    html2 += '&lt;/tbody&gt;&lt;/table&gt;';
+    document.getElementById("tablaHTML").innerHTML = html;
+    //document.getElementById("codeHTML").innerHTML = html2;
+	
+}
+
+function generarImagen() {
+  const tabla = document.getElementById("miTabla");
+
+  html2canvas(tabla).then(canvas => {
+    // Crear una URL de la imagen
+    const imgData = canvas.toDataURL("image/png");
+
+    // Crear un enlace para descargarla
+    const link = document.createElement('a');
+    link.href = imgData;
+    link.download = 'tabla.png';
+    //link.click();
+    document.getElementById("imgDonwload").innerHTML="<img src='"+link.href+"'>";
+    //document.getElementById("srcDownload").innerHTML=link.href;
+    //window.location.replace("img.html?img="+link.href);
+    //window.location.replace(link.href);
+
+    document.getElementById("tablaHTML").style.display = "none";
+  });
+}
+  
+  genTableHTML(f1, c1, i1, o1);
+  generarImagen();
+
+</script>
+
+</body>
+</html>
+
