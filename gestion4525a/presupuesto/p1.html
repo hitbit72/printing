@@ -269,8 +269,8 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
 
       document.getElementById("nCliente").innerHTML = dCliente[0];
       document.getElementById("dCliente").innerHTML = fCliente(dCliente);
-      document.getElementById("prNumero").innerHTML = params.numero;
-      document.getElementById("fechaDoc").innerHTML = params.fecha;
+      document.getElementById("prNumero").innerHTML = decodeURI(params.numero);
+      document.getElementById("fechaDoc").innerHTML = decodeURI(params.fecha);
       document.getElementById("iva").innerHTML = "IVA ("+params.iva+"%):";
       document.getElementById("subtotal").innerHTML = fNum(params.subtotal);
       document.getElementById("taxes").innerHTML = fNum(params.taxes);
