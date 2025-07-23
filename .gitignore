@@ -4,5 +4,6 @@
 .web
 *.zip
 __pycache__/
+git_info.txt
 assets/external/
 Recursos/
