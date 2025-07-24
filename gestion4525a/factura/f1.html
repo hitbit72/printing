@@ -274,8 +274,8 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
       let fechaDoc = decodeURI(params.fecha);     // Fecha de presupuesto
       fechaDoc = fechaDoc.replaceAll('%2F','/');
       
-      let fText = decodeURI(params.txtPie);       // Texto pie de pagina
-
+      let fText = decodeURIComponent(params.txtPie);       // Texto pie de pagina
+            
       document.getElementById("nCliente").innerHTML = dCliente[0];
       document.getElementById("dCliente").innerHTML = fCliente(dCliente);
       document.getElementById("prNumero").innerHTML = numDoc;
@@ -285,7 +285,7 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
       document.getElementById("taxes").innerHTML = fNum(params.taxes);
       document.getElementById("total").innerHTML = fNum(params.total);
       if (fText.length > 0){
-        fechaDoc = fechaDoc.replaceAll('%3A',':');
+        // fechaDoc = fechaDoc.replaceAll('%3A',':');
         document.getElementById("footerText").innerHTML = fText;
         document.getElementById("footerTitle").innerHTML = "Información:";
         
