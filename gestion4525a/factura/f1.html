@@ -40,7 +40,7 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
                         </td>
                         <td class="pl-4">
                           <div>
-                            <p class="whitespace-nowrap text-slate-500 text-right">Presupuesto #</p>
+                            <p class="whitespace-nowrap text-slate-500 text-right">Factura #</p>
                             <p id="prNumero" class="whitespace-nowrap font-bold text-main text-right">BRA-00335</p>
                           </div>
                         </td>
@@ -274,6 +274,8 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
       let fechaDoc = decodeURI(params.fecha);     // Fecha de presupuesto
       fechaDoc = fechaDoc.replaceAll('%2F','/');
       
+      let fText = decodeURI(params.txtPie);
+
       document.getElementById("nCliente").innerHTML = dCliente[0];
       document.getElementById("dCliente").innerHTML = fCliente(dCliente);
       document.getElementById("prNumero").innerHTML = numDoc;
@@ -282,6 +284,11 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
       document.getElementById("subtotal").innerHTML = fNum(params.subtotal);
       document.getElementById("taxes").innerHTML = fNum(params.taxes);
       document.getElementById("total").innerHTML = fNum(params.total);
+      if (fText.length > 0){
+        document.getElementById("footerText").innerHTML = fText;
+        document.getElementById("footerTitle").innerHTML = "Información";
+        
+      }
 
       addLine("pr01", lineas);
 
