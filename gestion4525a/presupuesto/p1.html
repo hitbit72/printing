@@ -83,7 +83,7 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
         <table id="pr01" class="w-full border-collapse border-spacing-0">
           <thead>
             <tr>
-              <td class="border-b-2 border-main pb-3 pl-2 font-bold text-main">Producto / Descripción</td>
+              <td class="border-b-2 border-main pb-3 pl-2 font-bold text-main">Producto / Servicio</td>
               <td class="border-b-2 border-main pb-3 pl-2 text-right font-bold text-main">Precio</td>
               <td class="border-b-2 border-main pb-3 pl-2 text-right font-bold text-main">Cant.</td>
               <td class="border-b-2 border-main pb-3 pl-2 pr-3 text-right font-bold text-main">Total</td>
@@ -261,17 +261,17 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
        */
 
       const appid = params.idapp;                 // APP  ID
-      let cliente = decodeURI(params.cliente);    // Linea con todos los datos del cliente
-      const lineas = decodeURI(params.lineas);    // Lineas del presupuesto
-      cliente = cliente.replaceAll('%2C',',');
-      cliente = cliente.replaceAll('%2F','/');
+      let cliente = decodeURIComponent(params.cliente);    // Linea con todos los datos del cliente
+      const lineas = decodeURIComponent(params.lineas);    // Lineas del presupuesto
+      //cliente = cliente.replaceAll('%2C',',');
+      //cliente = cliente.replaceAll('%2F','/');
       const dCliente = cliente.split("þ");
       
-      let numDoc = decodeURI(params.numero);      // Numero del presupuesto
-      numDoc = numDoc.replace('%2F','/');
+      let numDoc = decodeURIComponent(params.numero);      // Numero del presupuesto
+      //numDoc = numDoc.replace('%2F','/');
 
-      let fechaDoc = decodeURI(params.fecha);     // Fecha de presupuesto
-      fechaDoc = fechaDoc.replaceAll('%2F','/');
+      let fechaDoc = decodeURIComponent(params.fecha);     // Fecha de presupuesto
+      //fechaDoc = fechaDoc.replaceAll('%2F','/');
       
       document.getElementById("nCliente").innerHTML = dCliente[0];
       document.getElementById("dCliente").innerHTML = fCliente(dCliente);
