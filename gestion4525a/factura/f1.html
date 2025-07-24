@@ -262,17 +262,17 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
        */
 
       const appid = params.idapp;                 // APP  ID
-      let cliente = decodeURI(params.cliente);    // Linea con todos los datos del cliente
-      const lineas = decodeURI(params.lineas);    // Lineas del presupuesto
-      cliente = cliente.replaceAll('%2C',',');
-      cliente = cliente.replaceAll('%2F','/');
+      let cliente = decodeURIComponent(params.cliente);    // Linea con todos los datos del cliente
+      const lineas = decodeURIComponent(params.lineas);    // Lineas del documento
+      //cliente = cliente.replaceAll('%2C',',');
+      //cliente = cliente.replaceAll('%2F','/');
       const dCliente = cliente.split("þ");
       
-      let numDoc = decodeURI(params.numero);      // Numero del presupuesto
-      numDoc = numDoc.replace('%2F','/');
+      let numDoc = decodeURIComponent(params.numero);      // Numero del documento
+      //numDoc = numDoc.replace('%2F','/');
 
-      let fechaDoc = decodeURI(params.fecha);     // Fecha de presupuesto
-      fechaDoc = fechaDoc.replaceAll('%2F','/');
+      let fechaDoc = decodeURIComponent(params.fecha);     // Fecha de dpcumento
+      //fechaDoc = fechaDoc.replaceAll('%2F','/');
       
       let fText = decodeURIComponent(params.txtPie);       // Texto pie de pagina
             
