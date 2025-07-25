@@ -33,12 +33,12 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
                     </td>
                     <td>
                       <div id="empresa" class="text-sm text-neutral-600 pl-2">
-                        <p id="nomEmpresa" class="font-bold">Reformas y Pinturas Andrés</p>
+                        <p id="nomEmpresa" class="font-bold">Empresa</p>
                         <!--
                         <p id="dirEmpresa">C/ Linares nº 38</p>
                         <p id="pobEmpresa">23537 Bedmar (Jaén)</p>
                         -->
-                        <p id="telEmpresa">Tel. 664 07 06 41</p>
+                        <p id="telEmpresa"></p>
                       </div>
                     </td>
                   </tr>
@@ -305,7 +305,7 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
       //document.getElementById("cifEmpresa").innerHTML = empresa[1];
       //document.getElementById("dirEmpresa").innerHTML = empresa[2];
       //document.getElementById("pobEmpresa").innerHTML = empresa[3]+" "+empresa[4]+" ("+empresa[5]+")";
-      document.getElementById("telEmpresa").innerHTML = empresa[6];
+      document.getElementById("telEmpresa").innerHTML = "Tel. "+empresa[6];
 
       document.getElementById("nCliente").innerHTML = dCliente[0];
       document.getElementById("dCliente").innerHTML = fCliente(dCliente);
