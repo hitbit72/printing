@@ -291,12 +291,22 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
       //cliente = cliente.replaceAll('%2F','/');
       const dCliente = cliente.split("þ");
       
+      let empresa = decodeURIComponent(params.empresa);    // Linea con todos los datos de la empresa
+      empresa = empresa.split("þ");
+
       let numDoc = decodeURIComponent(params.numero);      // Numero del presupuesto
       //numDoc = numDoc.replace('%2F','/');
 
       let fechaDoc = decodeURIComponent(params.fecha);     // Fecha de presupuesto
       //fechaDoc = fechaDoc.replaceAll('%2F','/');
       
+      // Datos empresa
+      document.getElementById("nomEmpresa").innerHTML = empresa[0];
+      //document.getElementById("cifEmpresa").innerHTML = empresa[1];
+      //document.getElementById("dirEmpresa").innerHTML = empresa[2];
+      //document.getElementById("pobEmpresa").innerHTML = empresa[3]+" "+empresa[4]+" ("+empresa[5]+")";
+      document.getElementById("telEmpresa").innerHTML = empresa[6];
+
       document.getElementById("nCliente").innerHTML = dCliente[0];
       document.getElementById("dCliente").innerHTML = fCliente(dCliente);
       document.getElementById("prNumero").innerHTML = numDoc;

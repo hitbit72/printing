@@ -265,6 +265,25 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
         return datos;
       }
 
+      /**
+       * Formato salida de datos de la empresa
+       * [Nombre]&"þ"&[CIF]&"þ"&[Direccion]&"þ"&[CP]&"þ"&[Poblacion]&"þ"&[Provincia]&"þ"&[Telefono]&"þ"&[correo]
+       */
+      function fEmpresa(cl){
+        let datos="";
+        if (cl[1] != ""){ datos +=cl[1]+"<br>"; }
+        if (cl[2] != ""){ datos +=cl[2]+"<br>"; }
+        if (cl[3] != ""){ 
+          datos +=cl[3]+" "+cl[4]; 
+          if (cl[5] != ""){ datos +=" ("+cl[5]+")<br>"; } else { datos +="<br>"; }
+        }else{
+          datos +=cl[4];
+          if (cl[5] != ""){ datos +=" ("+cl[5]+")<br>"; } else { datos +="<br>"; }
+        }
+        if (cl[6] != ""){ datos +="Tel. "+cl[6]; }
+
+        return datos;
+      }
 
       // Empezamos a buscar los parametros pasados al url
       const url = window.location.href;
@@ -282,13 +301,16 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
        * Separador de linea: θ
        */
 
-      const appid = params.idapp;                 // APP  ID
+      //const appid = params.idapp;                 // APP  ID
       let cliente = decodeURIComponent(params.cliente);    // Linea con todos los datos del cliente
       const lineas = decodeURIComponent(params.lineas);    // Lineas del documento
       //cliente = cliente.replaceAll('%2C',',');
       //cliente = cliente.replaceAll('%2F','/');
       const dCliente = cliente.split("þ");
       
+      let empresa = decodeURIComponent(params.empresa);    // Linea con todos los datos de la empresa
+      empresa = empresa.split("þ");
+
       let numDoc = decodeURIComponent(params.numero);      // Numero del documento
       //numDoc = numDoc.replace('%2F','/');
 
@@ -296,7 +318,16 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
       //fechaDoc = fechaDoc.replaceAll('%2F','/');
       
       let fText = decodeURIComponent(params.txtPie);       // Texto pie de pagina
-            
+      
+
+      // Datos empresa
+      document.getElementById("nomEmpresa").innerHTML = empresa[0];
+      document.getElementById("cifEmpresa").innerHTML = empresa[1];
+      document.getElementById("dirEmpresa").innerHTML = empresa[2];
+      document.getElementById("pobEmpresa").innerHTML = empresa[3]+" "+empresa[4]+" ("+empresa[5]+")";
+      document.getElementById("telEmpresa").innerHTML = empresa[6];
+
+
       document.getElementById("nCliente").innerHTML = dCliente[0];
       document.getElementById("dCliente").innerHTML = fCliente(dCliente);
       document.getElementById("prNumero").innerHTML = numDoc;
