@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão de Contacto - Carlos Vasconcelos</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0 0 20px;
+            font-size: 1.5em;
+            color: #C3002F;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #C3002F;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #C3002F;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #A0002A;
+        }
+
+        #qrcode {
+            margin-top: 20px;
+            background-color: white;
+            padding: 15px;
+            border: 2px solid #C3002F;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Carlos Vasconcelos</h1>
+
+        <!-- Campos de entrada -->
+        <input type="text" id="name" placeholder="Nome" value="Carlos Vasconcelos">
+        <input type="text" id="company" placeholder="Empresa" value="Nissan Caetano Power Almada">
+        <input type="tel" id="phone" placeholder="Telefone" value="918404101">
+        <input type="email" id="email" placeholder="Email" value="carlosmartins.vasconcelos@caetanoretail.pt">
+        <input type="url" id="location" placeholder="Localização" value="https://maps.app.goo.gl/9n26jDhzazsBaSVd6">
+        
+        <!-- Botão de geração -->
+        <button onclick="generateQRCode()">Gerar QR Code</button>
+
+        <!-- Área do QR Code -->
+        <div id="qrcode"></div>
+    </div>
+
+    <script>
+        function generateQRCode() {
+            document.getElementById('qrcode').innerHTML = '';
+
+            const name = document.getElementById('name').value;
+            const company = document.getElementById('company').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const location = document.getElementById('location').value;
+
+            // Estrutura vCard corrigida
+            const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:${name}
+N:${name};;;;
+TITLE:${company}
+TEL:${phone}
+EMAIL:${email}
+URL:${location}
+END:VCARD`;
+
+            // Gerar QR Code
+            const qr = qrcode(0, 'M');
+            qr.addData(vcard);
+            qr.make();
+
+            // Exibir o QR Code
+            const imgTag = qr.createImgTag(6);
+            document.getElementById('qrcode').innerHTML = imgTag;
+        }
+    </script>
+</body>
+</html>
