@@ -167,13 +167,14 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
         <p>Account Number: 123456678</p>
         <p>Payment Reference: BRA-00335</p>
       </div>
+      -->
 
       <div class="px-14 py-4  text-neutral-700">
-        <p class="text-main font-bold">Notas</p>
-        <p class="italic">Lorem ipsum es un texto de marcador de posición que se utiliza comúnmente en las industrias gráficas, de impresión y editoriales
-para obtener vistas previas de diseños y maquetas visuales.</p>
+        <p class="text-main font-bold" id="footerTitle"></p>
+        <p class="italic" id="footerText"></p>
       </div>
 
+      <!--
         <footer class="fixed bottom-0 left-0 bg-slate-100 w-full text-neutral-600 text-center text-xs py-3">
           Carpintería Eugenio Romero Medina
           <span class="text-slate-300 px-2">|</span>
@@ -260,7 +261,7 @@ para obtener vistas previas de diseños y maquetas visuales.</p>
           datos +=cl[4];
           if (cl[5] != ""){ datos +=" ("+cl[5]+")<br>"; } else { datos +="<br>"; }
         }
-        if (cl[6] != ""){ datos +=cl[6]; }
+        if (cl[6] != ""){ datos +="Tel. "+cl[6]; }
 
         return datos;
       }
