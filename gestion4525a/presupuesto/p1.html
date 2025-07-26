@@ -250,13 +250,9 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
         let datos="";
         if (cl[1] != ""){ datos +=cl[1]+"<br>"; }
         if (cl[2] != ""){ datos +=cl[2]+"<br>"; }
-        if (cl[3] != ""){ 
-          datos +=cl[3]+" "+cl[4]; 
-          if (cl[5] != ""){ datos +=" ("+cl[5]+")<br>"; } else { datos +="<br>"; }
-        }else{
-          datos +=cl[4];
-          if (cl[5] != ""){ datos +=" ("+cl[5]+")<br>"; } else { datos +="<br>"; }
-        }
+        if (cl[4] != ""){ datos +=cl[4]+"<br>";}
+        if (cl[3] != ""){ datos +=cl[3]+" "; }
+        datos +=cl[5]+"<br>";
         if (cl[6] != ""){ datos +="Tel. "+cl[6]; }
 
         return datos;
