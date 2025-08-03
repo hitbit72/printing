@@ -77,15 +77,11 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
         <table class="w-full border-collapse border-spacing-0">
           <tbody>
             <tr>
-            <!--
-              <td class="w-1/2 align-top">
-                <div id="empresa" class="text-sm text-neutral-600">
-                  <p id="nEmpresa">C/ Linares nº 38</p>
-                  <p id="dEmpresa">23537 Bedmar (Jaén)<br>
-                  664 07 06 41<br></p>
+              <td class="w-1/2 align-top text-left">
+                <div class="text-sm text-neutral-600">
+                  <p id="referencia"></p>
                 </div>
               </td>
-              -->
               <td class="w-1/2 align-top text-right">
                 <div id="cliente" class="text-sm text-neutral-600 pl-2">
                   <p id="nCliente" class="font-bold">Cliente</p>
@@ -327,6 +323,7 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
       document.getElementById("dCliente").innerHTML = fCliente(dCliente);
       document.getElementById("prNumero").innerHTML = numDoc+"/"+numTipo;
       document.getElementById("fechaDoc").innerHTML = fechaDoc;
+      document.getElementById("referencia").innerHTML = refDoc;
       document.getElementById("iva").innerHTML = "IVA ("+params.iva+"%):";
       document.getElementById("subtotal").innerHTML = fNum(params.subtotal);
       document.getElementById("taxes").innerHTML = fNum(params.taxes);
