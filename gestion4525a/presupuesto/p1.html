@@ -286,7 +286,7 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
       //numDoc = numDoc.replace('%2F','/');
 
       let fechaDoc = decodeURIComponent(params.fecha);     // Fecha de presupuesto
-      //fechaDoc = fechaDoc.replaceAll('%2F','/');
+      let refDoc = decodeURIComponent(params.ref);         // Referncia de presupuesto
       
       // Datos empresa
       document.getElementById("nomEmpresa").innerHTML = empresa[0];
@@ -299,7 +299,7 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
       document.getElementById("dCliente").innerHTML = fCliente(dCliente);
       document.getElementById("prNumero").innerHTML = numDoc;
       document.getElementById("fechaDoc").innerHTML = fechaDoc;
-      document.getElementById("referenica").innerHTML = fNum(params.ref);
+      document.getElementById("referenica").innerHTML = refDoc;
       document.getElementById("iva").innerHTML = "IVA ("+params.iva+"%):";
       document.getElementById("subtotal").innerHTML = fNum(params.subtotal);
       document.getElementById("taxes").innerHTML = fNum(params.taxes);

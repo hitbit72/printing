@@ -312,7 +312,7 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
       let numTipo = decodeURIComponent(params.tipo);       // Tipo del documento
 
       let fechaDoc = decodeURIComponent(params.fecha);     // Fecha de dpcumento
-      //fechaDoc = fechaDoc.replaceAll('%2F','/');
+      let refDoc = decodeURIComponent(params.ref);         // Referncia de presupuesto
       
       let fText = decodeURIComponent(params.txtPie);       // Texto pie de pagina
       
@@ -323,8 +323,6 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
       document.getElementById("dirEmpresa").innerHTML = empresa[2];
       document.getElementById("pobEmpresa").innerHTML = empresa[3]+" "+empresa[4]+" ("+empresa[5]+")";
       document.getElementById("telEmpresa").innerHTML = "Tel. "+empresa[6];
-
-
       document.getElementById("nCliente").innerHTML = dCliente[0];
       document.getElementById("dCliente").innerHTML = fCliente(dCliente);
       document.getElementById("prNumero").innerHTML = numDoc+"/"+numTipo;
