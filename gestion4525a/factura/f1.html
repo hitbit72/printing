@@ -309,7 +309,7 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
       empresa = empresa.split("þ");
 
       let numDoc = decodeURIComponent(params.numero);      // Numero del documento
-      //numDoc = numDoc.replace('%2F','/');
+      let numTipo = decodeURIComponent(params.tipo);       // Tipo del documento
 
       let fechaDoc = decodeURIComponent(params.fecha);     // Fecha de dpcumento
       //fechaDoc = fechaDoc.replaceAll('%2F','/');
@@ -327,7 +327,7 @@ https://github.com/templid/email-templates/tree/main/templid-dynamic-templates
 
       document.getElementById("nCliente").innerHTML = dCliente[0];
       document.getElementById("dCliente").innerHTML = fCliente(dCliente);
-      document.getElementById("prNumero").innerHTML = numDoc;
+      document.getElementById("prNumero").innerHTML = numDoc+"/"+numTipo;
       document.getElementById("fechaDoc").innerHTML = fechaDoc;
       document.getElementById("iva").innerHTML = "IVA ("+params.iva+"%):";
       document.getElementById("subtotal").innerHTML = fNum(params.subtotal);
