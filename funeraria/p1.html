@@ -207,8 +207,8 @@
     }
 
 
-    document.getElementById("nombre").innerHTML = decodeURI(params.nombre);
-    document.getElementById("ffecha").innerHTML = params.fdia + " de " + params.fmes + " del " + params.fany;
+    document.getElementById("nombre").innerHTML = "<b>" + decodeURI(params.nombre) + "</b>";
+    document.getElementById("ffecha").innerHTML = "<b>" + params.fdia + " de " + params.fmes + " del " + params.fany + "</b>";
     document.getElementById("edad").innerHTML = params.edad;
     document.getElementById("mfecha").innerHTML = params.mdia + " de " + params.mmes + " del " + params.many + " a las " + decodeURI(params.mhora);
     document.getElementById("iglesia").innerHTML = decodeURI(params.iglesia);
